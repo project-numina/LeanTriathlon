@@ -1,0 +1,25 @@
+{
+  "environments": {
+    "require_label": ["definition", "lemma", "theorem"],
+    "require_proof": ["lemma", "theorem"],
+    "require_lean": ["definition", "lemma", "theorem"],
+    "must_be_referenced": ["definition", "lemma"]
+  },
+  "rules": {
+    "check_label_uniqueness": true,
+    "check_dependencies": true,
+    "check_circular_dependencies": true,
+    "check_transitive_usage": true,
+    "check_file_references": true,
+    "check_proof_bindings": true,
+    "check_lean_blocks": true,
+    "check_chapter_first": true,
+    "check_lean_ams_tags": true,
+    "check_theorem_env_present": true
+  },
+  "paths": {
+    "blueprint_dir": "blueprint/src",
+    "theorems_dir": "blueprint/src/theorems",
+    "content_file": "blueprint/src/content.tex"
+  }
+}

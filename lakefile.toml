@@ -1,0 +1,23 @@
+name = "LiveLeanTriathlon"
+defaultTargets = ["LiveLeanTriathlonSorry"]
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[require]]
+name = "checkdecls"
+git = "https://github.com/PatrickMassot/checkdecls.git"
+
+[[require]]
+name = "«doc-gen4»"
+git = "https://github.com/leanprover/doc-gen4"
+rev = "main"
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+
+[[lean_lib]]
+name = "LiveLeanTriathlonSorry"

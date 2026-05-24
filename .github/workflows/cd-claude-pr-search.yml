@@ -1,0 +1,38 @@
+name: CD Deploy Claude PR Search
+
+on:
+  workflow_dispatch:
+    inputs:
+      DEPLOY_ENV:
+        description: "GitHub Environment to deploy"
+        required: false
+        type: environment
+      TARGET_PATH:
+        description: "Deployment target path"
+        required: true
+        type: string
+      BLUEPRINT_PATH:
+        description: "Blueprint path"
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.DEPLOY_ENV || null }}
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.5
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT || '22' }}
+          script: |
+            set -e
+            source ~/.github_action_info
+            echo `python -v`
+            export BRANCH="${{ github.ref_name }}"
+            export TARGET_PATH="${{ inputs.TARGET_PATH }}"
+            export BLUEPRINT_PATH=${{ inputs.BLUEPRINT_PATH }}
+            bash ${{ vars.DEPLOY_SCRIPT_PATH }} "git@github.com:project-numina/LiveLeanTriathlon.git" "${BRANCH}" "${TARGET_PATH}" "${BLUEPRINT_PATH}"

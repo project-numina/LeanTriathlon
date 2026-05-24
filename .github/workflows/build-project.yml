@@ -1,0 +1,76 @@
+name: Build LiveLeanTriathlon (DISABLED)
+
+on:
+  # Disabled - functionality moved to build-project-and-blueprint.yml
+  # To re-enable, uncomment the triggers below and remove this comment
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - '**/*.lean'
+  #     - 'lean-toolchain'
+  #     - 'lakefile.toml'
+  #     - 'lake-manifest.json'
+  # pull_request:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - '**/*.lean'
+  #     - 'lean-toolchain'
+  #     - 'lakefile.toml'
+  #     - 'lake-manifest.json'
+  workflow_dispatch: # Allow manual triggering of the workflow from the GitHub Actions interface (kept for testing)
+
+# Cancel previous runs if a new commit is pushed to the same PR or branch
+concurrency:
+  group: ${{ github.ref }}  # Group runs by the ref (branch or PR)
+  cancel-in-progress: true  # Cancel any ongoing runs in the same group
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages and modify PR labels
+permissions:
+  contents: read          # Read access to repository contents
+  pages: write            # Write access to GitHub Pages
+  id-token: write         # Write access to ID tokens
+
+jobs:
+  build_project:
+    runs-on: ubuntu-latest
+    name: Build project
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # Fetch all history for all branches and tags
+
+      - name: Install and configure Lean, and get mathlib cache
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
+        with:
+          auto-config: false
+          use-github-cache: false
+          use-mathlib-cache: true
+
+      - name: "Check that LiveLeanTriathlon.lean is up to date"
+        run: |
+          ~/.elan/bin/lake exe mk_all --module --check
+
+      - name: Cache build artifacts
+        uses: actions/cache@v5
+        with:
+          path: .lake/build
+          key: LakeBuild-${{ runner.os }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}
+          restore-keys: LakeBuild-
+
+      - name: Build project
+        run: ~/.elan/bin/lake build LiveLeanTriathlon
+
+      ## Commented out due to deprecation,
+      ## see https://leanprover.zulipchat.com/#narrow/channel/287929-mathlib4/topic/Mathlib.20has.20moved.20to.20the.20new.20module.20system/near/558865051
+      # - name: Check for unused imports
+      #   id: shake
+      #   run: |
+      #     ~/.elan/bin/lake exe shake --gh-style
+
+      - name: Lint code
+        id: lint
+        run: |
+          ~/.elan/bin/lake exe runLinter LiveLeanTriathlon

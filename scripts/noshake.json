@@ -1,0 +1,7 @@
+{"ignoreImport": ["LiveLeanTriathlon.Mathlib"],
+ "ignore":
+ {"LiveLeanTriathlon.Mathlib.RingTheory.Localization.Integer": ["Mathlib.Tactic"],
+  "LiveLeanTriathlon.Mathlib.Probability.Moments.Variance": ["Mathlib.Tactic"],
+  "LiveLeanTriathlon.Mathlib.Classical": ["Init"],
+  "LiveLeanTriathlon.KolmogorovThreeSeriesSufficient.BackgroundLemmas":
+  ["Mathlib.Probability.Independence.Basic"]}}
