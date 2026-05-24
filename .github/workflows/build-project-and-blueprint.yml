@@ -1,0 +1,238 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  check-blueprint:
+    runs-on: ubuntu-latest
+    name: check-blueprint
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.9'
+
+      - name: Check blueprint
+        run: |
+          cd scripts
+          python check_blueprints.py
+
+      - name: Check license headers
+        run: |
+          python3 scripts/check_license.py
+
+  build:
+    runs-on: ubuntu-latest
+    name: Build project
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Pre-pull Docker image
+        run: nohup docker pull ghcr.io/xu-cheng/texlive-small:latest > /dev/null 2>&1 &
+
+      - name: Restore caches
+        id: cache
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            ~/.elan
+            .lake/packages
+            .lake/build
+          key: Lake-${{ runner.os }}-${{ hashFiles('lake-manifest.json') }}-${{ github.sha }}
+          restore-keys: |
+            Lake-${{ runner.os }}-${{ hashFiles('lake-manifest.json') }}-
+
+      - name: Install Lean
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
+        with:
+          auto-config: false
+          use-github-cache: false
+          use-mathlib-cache: false
+
+      - name: Install Mathlib
+        run: |
+          if [ ! -d ".lake/packages/mathlib" ]; then
+            ~/.elan/bin/lake exe cache get
+          else
+            echo "Mathlib already present from cache"
+          fi
+
+      - name: Build and verify
+        run: |
+          # ── Blueprint build script ──
+          cat > /tmp/build-blueprint.sh << 'BLUEPRINT_SCRIPT'
+          set -euo pipefail
+          apk update
+          apk add --no-cache --update make py3-pip git pkgconfig graphviz graphviz-dev gcc musl-dev
+          git config --global --add safe.directory "$PWD"
+          python3 -m venv /tmp/bp-venv
+          source /tmp/bp-venv/bin/activate
+          pip install --upgrade pip requests wheel
+          pip install --no-cache-dir pygraphviz \
+            --config-settings="--global-option=build_ext" \
+            --config-settings="--global-option=-L/usr/lib/graphviz/" \
+            --config-settings="--global-option=-R/usr/lib/graphviz/"
+          pip install --no-cache-dir leanblueprint
+          leanblueprint pdf
+          leanblueprint web
+          BLUEPRINT_SCRIPT
+
+          # ── Blueprint pipeline (background, in Docker) ──
+          docker run --rm \
+            -v "$GITHUB_WORKSPACE:$GITHUB_WORKSPACE" \
+            -v /tmp/build-blueprint.sh:/tmp/build-blueprint.sh:ro \
+            -w "$GITHUB_WORKSPACE" \
+            ghcr.io/xu-cheng/texlive-small:latest \
+            sh /tmp/build-blueprint.sh > /tmp/blueprint.log 2>&1 &
+          BLUEPRINT_PID=$!
+
+          # ── Lean pipeline (foreground) ──
+          if ! ~/.elan/bin/lake exe mk_all --module --check; then
+            echo "::error::LiveLeanTriathlon.lean is out of date. Run 'lake exe mk_all --module' locally and commit the result."
+            exit 1
+          fi
+
+          ~/.elan/bin/lake build LiveLeanTriathlon
+          ~/.elan/bin/lake shake --add-public --keep-implied --keep-prefix
+          ~/.elan/bin/lake exe runLinter LiveLeanTriathlon
+
+          # ── Wait for blueprint ──
+          if ! wait $BLUEPRINT_PID; then
+            echo "::group::Blueprint pipeline output"
+            cat /tmp/blueprint.log
+            echo "::endgroup::"
+            echo "::error::Blueprint pipeline failed. See 'Blueprint pipeline output' above for details."
+            exit 1
+          fi
+
+          echo "::group::Blueprint pipeline output"
+          cat /tmp/blueprint.log
+          echo "::endgroup::"
+
+          # ── Cross-check declarations ──
+          ~/.elan/bin/lake exe checkdecls blueprint/lean_decls
+
+      - name: Save caches
+        if: always() && github.ref == 'refs/heads/main'
+        uses: actions/cache/save@v5
+        with:
+          path: |
+            ~/.elan
+            .lake/packages
+            .lake/build
+          key: Lake-${{ runner.os }}-${{ hashFiles('lake-manifest.json') }}-${{ github.sha }}
+
+  build_sorry_variants:
+    runs-on: ubuntu-latest
+    name: Build sorry variants
+    steps:
+      - name: Cleanup to free disk space
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: false
+          android: true # saves approximately 12 GB
+          dotnet: false
+          haskell: false
+          large-packages: false
+          docker-images: false
+          swap-storage: false
+
+      - name: Checkout project
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install Lean and get mathlib cache
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
+        with:
+          auto-config: false
+          use-github-cache: false
+          use-mathlib-cache: true
+
+      - name: Cache build artifacts
+        uses: actions/cache@v5
+        with:
+          path: .lake/build
+          key: SorryVariantsBuild-${{ runner.os }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}
+          restore-keys: SorryVariantsBuild-
+
+      - name: Generate sorry variants
+        run: python3 scripts/create_sorries/create_sorries.py
+
+      - name: Build LiveLeanTriathlon
+        run: ~/.elan/bin/lake build LiveLeanTriathlon
+
+      - name: Build LiveLeanTriathlonSorry
+        run: ~/.elan/bin/lake build LiveLeanTriathlonSorry
+
+      - name: Build LiveLeanTriathlonSorryNoLemmas
+        run: ~/.elan/bin/lake build LiveLeanTriathlonSorryNoLemmas
+
+      - name: Generate statement JSONL files
+        run: python3 scripts/create_sorries/create_statement_jsonl.py
+
+      - name: Validate statement JSONL files
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          BASE = {"project_name", "name", "type", "code"}
+          SCHEMAS = {
+              "statement.jsonl": BASE,
+              "statements_hard.jsonl": BASE,
+              "statements_autoformalization.jsonl": BASE | {"title", "informal_statement", "informal_proof"},
+          }
+          for fname, required in SCHEMAS.items():
+              path = Path("scripts/create_sorries") / fname
+              if not path.exists():
+                  raise SystemExit(f"{path} was not produced")
+              lines = path.read_text(encoding="utf-8").splitlines()
+              if not lines:
+                  raise SystemExit(f"{path} is empty")
+              for i, line in enumerate(lines, 1):
+                  try:
+                      entry = json.loads(line)
+                  except json.JSONDecodeError as e:
+                      raise SystemExit(f"{path}:{i}: invalid JSON: {e}")
+                  missing = required - entry.keys()
+                  if missing:
+                      raise SystemExit(f"{path}:{i}: missing fields {sorted(missing)}")
+                  if entry["type"] not in {"theorem", "lemma"}:
+                      raise SystemExit(f"{path}:{i}: bad type {entry['type']!r}")
+                  if "sorry" not in entry["code"]:
+                      raise SystemExit(f"{path}:{i}: code has no sorry")
+              print(f"{fname}: {len(lines)} valid entries")
+          PY
+
+      - name: Check committed JSONL is up to date
+        run: |
+          if ! git diff --exit-code -- 'scripts/create_sorries/*.jsonl'; then
+            echo "::error::Committed JSONL files are out of date. Run 'python3 scripts/create_sorries/create_statement_jsonl.py' locally and commit the result."
+            exit 1
+          fi
