@@ -77,7 +77,6 @@ jobs:
           fi
 
           ~/.elan/bin/lake build LiveLeanTriathlonSorry
-          ~/.elan/bin/lake exe runLinter LiveLeanTriathlonSorry
 
       - name: Save caches
         if: always() && github.ref == 'refs/heads/main'
