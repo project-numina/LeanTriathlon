@@ -1,0 +1,89 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  check-license:
+    runs-on: ubuntu-latest
+    name: check-license
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.9'
+
+      - name: Check license headers
+        run: |
+          python3 scripts/check_license.py
+
+  build:
+    runs-on: ubuntu-latest
+    name: Build project
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Restore caches
+        id: cache
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            ~/.elan
+            .lake/packages
+            .lake/build
+          key: Lake-${{ runner.os }}-${{ hashFiles('lake-manifest.json') }}-${{ github.sha }}
+          restore-keys: |
+            Lake-${{ runner.os }}-${{ hashFiles('lake-manifest.json') }}-
+
+      - name: Install Lean
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
+        with:
+          auto-config: false
+          use-github-cache: false
+          use-mathlib-cache: false
+
+      - name: Install Mathlib
+        run: |
+          if [ ! -d ".lake/packages/mathlib" ]; then
+            ~/.elan/bin/lake exe cache get
+          else
+            echo "Mathlib already present from cache"
+          fi
+
+      - name: Build and verify
+        run: |
+          if ! ~/.elan/bin/lake exe mk_all --module --check; then
+            echo "::error::LiveLeanTriathlonSorry.lean is out of date. Run 'lake exe mk_all --module' locally and commit the result."
+            exit 1
+          fi
+
+          ~/.elan/bin/lake build LiveLeanTriathlonSorry
+
+      - name: Save caches
+        if: always() && github.ref == 'refs/heads/main'
+        uses: actions/cache/save@v5
+        with:
+          path: |
+            ~/.elan
+            .lake/packages
+            .lake/build
+          key: Lake-${{ runner.os }}-${{ hashFiles('lake-manifest.json') }}-${{ github.sha }}
