@@ -7,11 +7,11 @@ formalized in Lean 4, along with LaTeX blueprints.
 
 It has been adapted from the [Lean Project Template repository](https://github.com/pitmonticone/LeanProject).
 
+*Note: This version of the repository has been stripped of the informal and formal proofs to avoid data leakage. Full versiion is available upon request.*
+
 ## Overview
 
-![diagram](./img/diagram.png)
-
-LiveLeanTriathlon is a benchmark under development
+LiveLeanTriathlon is a benchmark
 for automated theorem proving and autoformalization in Lean 4.
 It consists of a collection of mathematical theorems formalized in Lean 4,
 and formalizations of supporting lemmas used in the proofs of these theorems,
@@ -39,63 +39,20 @@ that the community is interested in.
 
 The repository is organized as follows (listing the main folders and files):
 
-- `blueprint/src/theorems/`: Contains the LaTeX blueprints for the theorems in the benchmark.
-- `blueprint/src/content.tex`: The main LaTeX file that includes the individual theorem blueprints as `\input`s.
-- `LiveLeanTriathlon/<TheoremName>/`: Each theorem has its own directory containing:
-  - `MainTheorem.lean`: The main theorem statement.
-  - `BackgroundLemmas.lean`: Supporting lemmas needed for the main theorem.
-  - These files may include `sorry` placeholders for incomplete proofs - we will attempt to fill these in over time using automated tools.
-- `LiveLeanTriathlon/Mathlib/`: Contains any lemmas that are needed but not present in mathlib.
-- `Mistakes/`: A directory for incorrect formalizations to help learn from mistakes.
+- ~~`blueprint/src/theorems/`: Contains the LaTeX blueprints for the theorems in the benchmark.~~
+- ~~`blueprint/src/content.tex`: The main LaTeX file that includes the individual theorem blueprints as `\input`s.~~
+- `LiveLeanTriathlonSorry/<TheoremName>/`: Each theorem has its own directory containing:
+  - `All.lean`: The sorried main theorem statement.
+  - ~~`MainTheorem.lean`: The main theorem statement and proof.~~
+  - ~~`BackgroundLemmas.lean`: Supporting lemmas needed for the main theorem.~~
+- `LiveLeanTriathlonSorry/Mathlib/`: Contains any lemmas that are needed but not present in mathlib.
 
-## Usage and Contribution
+## Statistics
 
-### Install Lean 4
+The file `scripts/theorem_stats.json` contains statistics on the theorems in the dataset, including:
 
-Ensure that you have a functioning Lean 4 installation. If you do not, please follow
-the [Lean installation guide](https://leanprover-community.github.io/get_started.html).
-
-### Clone this Repository
-
-To clone this repository to your local machine, please refer to the relevant section of the
-GitHub documentation [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
-
-### Contributing
-
-We welcome contributions to this repository!
-
-As a summary, the main parts of a contribution should include:
-
-- A Lean file `LiveLeanTriathlon/TheoremName/MainTheorem.lean` containing the main theorem statement.
-- Potentially other Lean files containing any supporting or mathlib-sendable lemmas needed for the main theorem.
-- A LaTeX blueprint proof of the theorem in `blueprint/src/theorems/theorem-name.tex` roughly in sync with the Lean files.
-
-#### PR lifecycle and Label management
-
-Each PR contributing a theorem should have an `awaiting-` label
-to indicate what the next step in the PR development is,
-and whether it needs contributor, maintainer, or AI attention.
-Please use one of the following tags to indicate the status of the PR:
-
-* `non-theorem` = Non-theorem changes (CI, docs, config, tooling, scripts) that don't follow the proof pipeline below and should be reviewed and merged promptly
-* `awaiting-human-reference-material` = Waiting for human to provide links to reference material in GitHub PR tracker comments
-  * Once this is provided, switch to `awaiting-AI-generate-blueprint`
-* `awaiting-AI-generate-blueprint` = Waiting for AI to process reference material / pre-existing blueprint into more elaborate blueprint
-  * Once this is done, switch to `awaiting-human-blueprint-review`
-* `awaiting-human-blueprint-review` = Waiting for human to review blueprint and correct it
-  * Ideally, the blueprint will have lemmas for every step of the formal proof.
-  * To make the theorem search go well, it is best to also include here Lean statements of the main theorem and definitions that it or the proof depends on.
-  * Once the blueprint is good, switch to `awaiting-AI-generate-formal-statements`
-* `awaiting-AI-generate-formal-statements` = Waiting for AI to process blueprint into formalized statements
-  * AI should generate formal statements and attempt to prove them, then switch to `awaiting-human-review`
-* `awaiting-AI-sorry-attempt` = AI should search for sorries and attempt to prove them
-  * AI should search for sorries and attempt to prove them, then switch to `awaiting-human-review`
-* `awaiting-human-review` = Waiting for human to review and attempt to prove any remaining sorries (Formerly AI-processed)
-  * Human should work on sorries until they are confident all remaining sorries are correct, then switch to `awaiting-maintainer-review`
-  * Optionally, make partial progress on sorries and switch back to `awaiting-AI-sorry-attempt`
-* `awaiting-maintainer-review` = Proof looks good and maintainer should double-check and merge
-
-Please see the [CONTRIBUTING.md](.github/CONTRIBUTING.md) file for detailed guidelines on how to contribute.
+* Counts of theorems by AMS classification
+* Data on which theorems have unsorried formal proofs, informal proofs, or background lemma statements.
 
 ## Licensing
 
@@ -121,15 +78,6 @@ materials distributed here under the Apache 2.0 license are distributed on an
 "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the license for the specific language governing permissions and
 limitations under the license.
-
-## Blueprint
-
-The theorems in this repository come with LaTeX blueprints that outline the structure of the
-proofs. These blueprints are located in the `blueprint/src/theorems` directory.
-
-To view the web or PDF version of the blueprints,
-follow the instructions for installing and using the leanblueprint command line tool
-from the [blueprint repository](https://github.com/PatrickMassot/leanblueprint).
 
 ## Sorry Variants and Benchmark JSONLs
 
