@@ -96,8 +96,8 @@ public import LiveLeanTriathlonSorry.Mathlib.Analysis.Normed.Operator.LinearIsom
 public import LiveLeanTriathlonSorry.Mathlib.Analysis.SpecialFunctions.Gamma.Beta
 public import LiveLeanTriathlonSorry.Mathlib.Analysis.SpecialFunctions.Pow.NNReal
 public import LiveLeanTriathlonSorry.Mathlib.CategoryTheory.CofilteredSystem
-public import LiveLeanTriathlonSorry.Mathlib.Classical.Choose
 public import LiveLeanTriathlonSorry.Mathlib.Classical
+public import LiveLeanTriathlonSorry.Mathlib.Classical.Choose
 public import LiveLeanTriathlonSorry.Mathlib.Data.Fin.Tuple.Sort
 public import LiveLeanTriathlonSorry.Mathlib.Data.Fintype.Card
 public import LiveLeanTriathlonSorry.Mathlib.Data.Multiset.Fintype
@@ -120,8 +120,8 @@ public import LiveLeanTriathlonSorry.Mathlib.MeasureTheory.Measure.MeasureSpaceD
 public import LiveLeanTriathlonSorry.Mathlib.MeasureTheory.Measure.ProbabilityMeasure
 public import LiveLeanTriathlonSorry.Mathlib.MeasureTheory.Pointwise
 public import LiveLeanTriathlonSorry.Mathlib.NumberTheory.FactorisationProperties
-public import LiveLeanTriathlonSorry.Mathlib.Order.Antichain.Width
 public import LiveLeanTriathlonSorry.Mathlib.Order.Antichain
+public import LiveLeanTriathlonSorry.Mathlib.Order.Antichain.Width
 public import LiveLeanTriathlonSorry.Mathlib.Order.Interval.Finset.Defs
 public import LiveLeanTriathlonSorry.Mathlib.Order.Interval.Set.Defs
 public import LiveLeanTriathlonSorry.Mathlib.Probability.Martingale.Basic
@@ -166,8 +166,8 @@ public import LiveLeanTriathlonSorry.TotientGrowthRate.All
 public import LiveLeanTriathlonSorry.TverbergTheorem.All
 public import LiveLeanTriathlonSorry.TwoFactorTheorem.All
 public import LiveLeanTriathlonSorry.TwoNinety.All
-public import LiveLeanTriathlonSorry.Util.Attributes.AMS
 public import LiveLeanTriathlonSorry.Util.Attributes
+public import LiveLeanTriathlonSorry.Util.Attributes.AMS
 public import LiveLeanTriathlonSorry.ValuationRingInterSubfield.All
 public import LiveLeanTriathlonSorry.Vantieghem.All
 public import LiveLeanTriathlonSorry.VonStaudtClausen.All
