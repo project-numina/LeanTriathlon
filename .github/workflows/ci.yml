@@ -77,7 +77,6 @@ jobs:
           fi
 
           ~/.elan/bin/lake build LiveLeanTriathlonSorry
-          ~/.elan/bin/lake shake --add-public --keep-implied --keep-prefix
           ~/.elan/bin/lake exe runLinter LiveLeanTriathlonSorry
 
       - name: Save caches
