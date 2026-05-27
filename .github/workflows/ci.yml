@@ -72,13 +72,13 @@ jobs:
       - name: Build and verify
         run: |
           if ! ~/.elan/bin/lake exe mk_all --module --check; then
-            echo "::error::LiveLeanTriathlon.lean is out of date. Run 'lake exe mk_all --module' locally and commit the result."
+            echo "::error::LiveLeanTriathlonSorry.lean is out of date. Run 'lake exe mk_all --module' locally and commit the result."
             exit 1
           fi
 
-          ~/.elan/bin/lake build LiveLeanTriathlon
+          ~/.elan/bin/lake build LiveLeanTriathlonSorry
           ~/.elan/bin/lake shake --add-public --keep-implied --keep-prefix
-          ~/.elan/bin/lake exe runLinter LiveLeanTriathlon
+          ~/.elan/bin/lake exe runLinter LiveLeanTriathlonSorry
 
       - name: Save caches
         if: always() && github.ref == 'refs/heads/main'
