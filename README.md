@@ -3,7 +3,7 @@
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-lightblue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 This repository contains a benchmark suite of mathematical theorems
-formalized in Lean 4, along with LaTeX blueprints.
+formalized in Lean 4.
 
 It has been adapted from the [Lean Project Template repository](https://github.com/pitmonticone/LeanProject).
 
