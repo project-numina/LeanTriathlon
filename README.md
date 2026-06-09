@@ -7,7 +7,7 @@ formalized in Lean 4.
 
 It has been adapted from the [Lean Project Template repository](https://github.com/pitmonticone/LeanProject).
 
-*Note: This version of the repository has been stripped of the informal and formal proofs to avoid data leakage. Full versiion is available upon request.*
+*Note: This version of the repository has been stripped of the informal and formal proofs to avoid data leakage. Full version is available upon request.*
 
 ## Overview
 
