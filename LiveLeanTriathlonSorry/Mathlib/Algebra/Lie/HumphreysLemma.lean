@@ -50,6 +50,9 @@ noncomputable def eigenbasis (s : Module.End K V) (hs : s.IsSemisimple) :=
 omit [CharZero K] in
 open Classical in
 
+-- `hs : s.IsSemisimple` cannot be inferred, so this is only ever applied explicitly
+-- (see `eigenbasisFintype s hs_ss` below); the `impossibleInstance` linter is expected.
+@[nolint impossibleInstance]
 noncomputable instance eigenbasisFintype (s : Module.End K V) (hs : s.IsSemisimple) :
     Fintype (Σ μ : K, Fin (Module.finrank K (s.eigenspace μ))) :=
   Module.Basis.fintypeIndexOfRankLtAleph0 (eigenbasis s hs)

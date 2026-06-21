@@ -16,7 +16,7 @@ open Nat Int
 def U (p q : ℤ) : ℕ → ℤ
   | 0 => 0
   | 1 => 1
-  | n + 2 => p * U p q (n + 1) + q * U p q n
+  | n + 2 => p * U p q (n + 1) - q * U p q n
 
 @[AMS 11]
 theorem carmichael {p q : ℤ} {n : ℕ}
@@ -25,6 +25,6 @@ theorem carmichael {p q : ℤ} {n : ℕ}
     (hpq : IsCoprime p q)
     (hpq_disc : 0 < p ^ 2 - 4 * q)
     (hpq' : p ≠ 0) (hq : q ≠ 0) :
-    (∃ r : ℕ, r.Prime ∧ (↑r : ℤ) ∣ U p q n ∧ ∀ m < n, ¬ (↑r : ℤ) ∣ U p q m ) := by sorry
+    (∃ r : ℕ, r.Prime ∧ (↑r : ℤ) ∣ U p q n ∧ ∀ m > 0, m < n → ¬ (↑r : ℤ) ∣ U p q m ) := by sorry
 
 end Main

@@ -12,7 +12,8 @@ public import LiveLeanTriathlonSorry.Util.Attributes
 section Main
 
 @[AMS 51]
-theorem beckmann_quarles {d : ℕ} {f : EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d)}
+theorem beckman_quarles {d : ℕ} {f : EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d)}
+  (hd : 2 ≤ d)
   (h : ∀ x y : EuclideanSpace ℝ (Fin d), dist x y = 1 → dist (f x) (f y) = 1) :
   Isometry f := by sorry
 
