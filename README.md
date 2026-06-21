@@ -166,3 +166,7 @@ Both scripts are exercised in the `build_sorry_variants` CI job
 ([.github/workflows/build-project-and-blueprint.yml](.github/workflows/build-project-and-blueprint.yml)),
 which generates the variant trees, builds them with Lake, generates the JSONL
 files, and validates each row's schema.
+
+## Acknowledgements
+
+We would like to thank Kim Morrison and Kevin Buzzard for identifying formalization errors in this development.

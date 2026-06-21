@@ -98,6 +98,7 @@ public import LiveLeanTriathlonSorry.Mathlib.Analysis.SpecialFunctions.Pow.NNRea
 public import LiveLeanTriathlonSorry.Mathlib.CategoryTheory.CofilteredSystem
 public import LiveLeanTriathlonSorry.Mathlib.Classical
 public import LiveLeanTriathlonSorry.Mathlib.Classical.Choose
+public import LiveLeanTriathlonSorry.Mathlib.Data.ENNReal.Operations
 public import LiveLeanTriathlonSorry.Mathlib.Data.Fin.Tuple.Sort
 public import LiveLeanTriathlonSorry.Mathlib.Data.Fintype.Card
 public import LiveLeanTriathlonSorry.Mathlib.Data.Multiset.Fintype
@@ -111,6 +112,7 @@ public import LiveLeanTriathlonSorry.Mathlib.LinearAlgebra.Dimension.Constructio
 public import LiveLeanTriathlonSorry.Mathlib.LinearAlgebra.Eigenspace.Basic
 public import LiveLeanTriathlonSorry.Mathlib.LinearAlgebra.Eigenspace.Zero
 public import LiveLeanTriathlonSorry.Mathlib.LinearAlgebra.Matrix.Hermitian
+public import LiveLeanTriathlonSorry.Mathlib.LinearAlgebra.Matrix.QuadraticForm
 public import LiveLeanTriathlonSorry.Mathlib.LinearAlgebra.Matrix.Symmetric
 public import LiveLeanTriathlonSorry.Mathlib.Logic.IsEmpty
 public import LiveLeanTriathlonSorry.Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality

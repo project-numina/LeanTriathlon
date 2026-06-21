@@ -14,7 +14,7 @@ section Main
 open Nat
 
 @[AMS 11]
-theorem jacobi (n : ℕ) : {a : Fin 4 → ℤ | (↑n : ℤ) = ∑ i : Fin 4, a i}.ncard
+theorem jacobi (n : ℕ) (hn : 0 < n) : {a : Fin 4 → ℤ | (↑n : ℤ) = ∑ i : Fin 4, (a i)^2}.ncard
     = 8 * ∑' m : {m : ℕ | m ∣ n ∧ ¬ 4 ∣ m}, m.val := by sorry
 
 end Main

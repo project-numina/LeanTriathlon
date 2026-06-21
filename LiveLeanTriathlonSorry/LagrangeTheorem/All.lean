@@ -15,6 +15,6 @@ open Polynomial Nat
 
 @[AMS 11]
 theorem lagrange {p : ℕ} (hp : p.Prime) {f : Polynomial ℤ} (h : ∃ n : ℕ, ¬ (↑p : ℤ) ∣ f.coeff n):
-    {n : ℕ | n ≤ p ∧ ↑p ∣ eval (↑n : ℤ) f}.ncard ≤ f.natDegree := sorry
+    {n : ℕ | n < p ∧ ↑p ∣ eval (↑n : ℤ) f}.ncard ≤ f.natDegree := sorry
 
 end Main

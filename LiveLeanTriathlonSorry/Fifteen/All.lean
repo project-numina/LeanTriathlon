@@ -7,6 +7,7 @@ Authors: Numina Team
 module
 public import Mathlib
 public import LiveLeanTriathlonSorry.Util.Attributes
+public import LiveLeanTriathlonSorry.Mathlib.LinearAlgebra.Matrix.QuadraticForm
 @[expose] public section
 
 section Main
@@ -16,17 +17,11 @@ open Matrix
 
 variable {n : ℕ}
 
-def Matrix.represents (M : Matrix (Fin n) (Fin n) ℤ) (m : ℕ) : Prop :=
-  ∃ v : Fin n → ℤ, v ⬝ᵥ (M *ᵥ v) = m
-
-def Matrix.Universal (M : Matrix (Fin n) (Fin n) ℤ) : Prop :=
-  ∀ m : ℕ, 0 < m → M.represents m
-
 @[AMS 11]
 theorem fifteen_theorem (M : Matrix (Fin n) (Fin n) ℤ)
     (hsymm : M.IsSymm)
     (hpos : M.PosDef)
-    (hrep : ∀ m : ℕ, 0 < m → m ≤ 15 → M.represents m) :
+    (hrep : ∀ m : ℕ, 0 < m → m ≤ 15 → M.TakesValue m) :
     M.Universal := by sorry
 
 end
