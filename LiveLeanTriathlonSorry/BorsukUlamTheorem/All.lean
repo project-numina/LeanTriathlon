@@ -17,7 +17,7 @@ abbrev UnitNDimensionalSphere (n : ℕ) := sphere (0 : (Fin (n + 1) → ℝ)) 1
 
 @[AMS 54]
 theorem borsuk_ulam (n : ℕ) {g : UnitNDimensionalSphere n → Fin n → ℝ}
-    (hg : ∀ x : UnitNDimensionalSphere n, g (-x) = g x) (cont : Continuous g):
+    (hg : ∀ x : UnitNDimensionalSphere n, g (-x) = -g x) (cont : Continuous g):
     ∃ x : UnitNDimensionalSphere n, g x = 0 := by sorry
 
 end Main

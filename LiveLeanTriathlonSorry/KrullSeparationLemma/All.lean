@@ -16,7 +16,7 @@ open Ideal
 universe u
 
 @[AMS 13]
-theorem krull_separation {R : Type u} [Ring R] {M : Submonoid R} {I : Ideal R}
+theorem krull_separation {R : Type u} [CommRing R] {M : Submonoid R} {I : Ideal R}
     (h : M.carrier ∩ I.carrier = ∅) :
     ∃ P : Ideal R, IsPrime P ∧ M.carrier ∩ P.carrier = ∅ ∧ I ≤ P := sorry
 

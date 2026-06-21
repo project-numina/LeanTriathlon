@@ -5,8 +5,9 @@ Authors: Numina Team
 -/
 
 module
-public import LiveLeanTriathlonSorry.Fifteen.All
+public import Mathlib
 public import LiveLeanTriathlonSorry.Util.Attributes
+public import LiveLeanTriathlonSorry.Mathlib.LinearAlgebra.Matrix.QuadraticForm
 @[expose] public section
 
 section Main
@@ -17,9 +18,10 @@ def critical_290_numbers : Finset ℕ :=
    34, 35, 37, 42, 58, 93, 110, 145, 203, 290}
 
 @[AMS 11]
-theorem two_ninety_theorem {n : ℕ} (M : Matrix (Fin n) (Fin n) ℤ)
+theorem two_ninety_theorem {n : ℕ} (M : Matrix (Fin n) (Fin n) ℝ)
     (hpos : M.PosDef)
-    (hrep : ∀ m ∈ critical_290_numbers, M.represents m) :
+    (hIntegral : M.Integral)
+    (hrep : ∀ m ∈ critical_290_numbers, M.TakesValue m) :
     M.Universal := by sorry
 
 end

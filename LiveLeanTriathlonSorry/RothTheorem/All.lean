@@ -7,14 +7,21 @@ Authors: Numina Team
 module
 public import Mathlib
 public import LiveLeanTriathlonSorry.Util.Attributes
+public import LiveLeanTriathlonSorry.Mathlib.Data.ENNReal.Operations
 @[expose] public section
 
 section Main
 
-open ENNReal Set
+open ENNReal NNReal Set
 
 noncomputable def IrrationalityMeasure (x : ℝ) : ℝ≥0∞ :=
-  sSup {r : ℝ≥0∞ | LiouvilleWith r.toReal x}
+  sSup (ENNReal.ofNNReal '' {r : ℝ≥0 | LiouvilleWith r.toReal x})
+
+theorem irrationalityMeasure_of_liouville {x : ℝ} (hx : Liouville x) :
+      IrrationalityMeasure x = ⊤ := by sorry
+
+theorem irrationalityMeasure_ge_one (x : ℝ) :
+      1 ≤ IrrationalityMeasure x := by sorry
 
 @[AMS 11]
 theorem roth {x : ℝ} (hx_irr : Irrational x) (hx_alg : IsAlgebraic ℚ x) :

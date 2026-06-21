@@ -12,7 +12,7 @@ public import LiveLeanTriathlonSorry.Util.Attributes
 section Main
 
 @[AMS 11]
-theorem waring (n : ℕ) : ∃ t : ℕ,
-    ∀ k, ∃ s : Finset ℕ, s.card ≤ t ∧ k = ∑ i ∈ s, i ^ n := by sorry
+theorem waring (n : ℕ) (hn : 0 < n) : ∃ t : ℕ,
+    ∀ k, ∃ s : Multiset ℕ, s.card ≤ t ∧ k = (s.map fun i => i ^ n).sum := by sorry
 
 end Main
