@@ -9,7 +9,7 @@ module
 public import Mathlib.Algebra.Lie.OfAssociative
 public import Mathlib.Algebra.Polynomial.Smeval
 public import Mathlib.RingTheory.Polynomial.Pochhammer
-public import Mathlib.RingTheory.Binomial
+public import Mathlib.RingTheory.Binomial -- shake: keep
 
 @[expose] public section
 

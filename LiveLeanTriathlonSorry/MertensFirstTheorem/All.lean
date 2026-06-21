@@ -11,14 +11,12 @@ public import LiveLeanTriathlonSorry.Util.Attributes
 
 section Main
 
-open Nat Set
+open Nat Set Real
 
-def Primes' : Set ℕ := {p | p.Prime}
-
-def PrimesLe (n : ℕ) : Set ℕ := Icc 0 n ∩ Primes'
+def PrimesLe (n : ℕ) : Finset ℕ := (Finset.Icc 0 n).filter Nat.Prime
 
 @[AMS 11]
 theorem merten_first {n : ℕ} (hn : 2 ≤ n) :
-  - Real.log n + ∑' k : PrimesLe n, Real.log k / k ≤ 2 := by sorry
+  |- Real.log n + ∑ k ∈ PrimesLe n, Real.log k / k| ≤ 2 := by sorry
 
 end Main

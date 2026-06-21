@@ -13,9 +13,13 @@ section Main
 
 open Nat
 
-noncomputable def d : ℕ → ℕ → ℕ := fun a b ↦ sInf ({a + k * b | k : ℕ} ∩ {p | p.Prime})
+/--
+The least prime in the progression a, a + d, a + 2d, ... (or zero if no such prime exists).
+-/
+noncomputable def p (a d : ℕ) : ℕ := sInf ({a + k * d | k : ℕ} ∩ {p | p.Prime})
 
 @[AMS 11]
-theorem linnik : ∃ c L : ℝ, ∀ ⦃a b : ℕ⦄, a.Coprime b → d a b ≤ c * (↑b : ℝ) ^ L := by sorry
+theorem linnik : ∃ c L : ℝ, ∀ ⦃a d : ℕ⦄,
+      0 < a → a < d → a.Coprime d → p a d ≤ c * (↑d : ℝ) ^ L := by sorry
 
 end Main

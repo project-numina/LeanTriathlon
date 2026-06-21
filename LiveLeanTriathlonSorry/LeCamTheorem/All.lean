@@ -26,7 +26,7 @@ noncomputable def PMF.bernoulliNat_of_unitInterval (p : unitInterval) : PMF ℕ 
 theorem LeCamTheorem (ps : List unitInterval) (hps : ∀ p ∈ ps, 0 ≤ p ∧ p ≤ 1) :
   let mean := (ps.map (fun p => p.val)).sum
   let sum := independentSum (ps.map (fun k => PMF.bernoulliNat_of_unitInterval (k) ) )
-  ∑ k ∈ Finset.range (ps.length+1),
+  ∑' k : ℕ,
     |(sum k).toReal - (Real.exp (-mean) * mean ^ k / k.factorial)| ≤ 2 * (ps.map (fun p => p.val ^ 2)).sum := sorry
 
 end Main

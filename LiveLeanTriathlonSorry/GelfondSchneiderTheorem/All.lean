@@ -14,10 +14,10 @@ section Main
 open Set Function
 
 universe u
-
 @[AMS 11]
-theorem gelfond_scheider (a b : ℝ) (ha_neq : a ≠ 0 ∧ a ≠ 1)
+
+theorem gelfond_schneider (a b : ℝ) (ha_pos : 0 < a) (ha_neq : a ≠ 1)
     (ha_alg : IsAlgebraic ℚ a) (hb_alg : IsAlgebraic ℚ b) (hb : Irrational b) :
-    Transcendental ℚ b := by sorry
+    Transcendental ℚ (a ^ b) := by sorry
 
 end Main
