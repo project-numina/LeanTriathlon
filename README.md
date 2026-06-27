@@ -47,13 +47,6 @@ The repository is organized as follows (listing the main folders and files):
   - ~~`BackgroundLemmas.lean`: Supporting lemmas needed for the main theorem.~~
 - `LiveLeanTriathlonSorry/Mathlib/`: Contains any lemmas that are needed but not present in mathlib.
 
-## Statistics
-
-The file `scripts/theorem_stats.json` contains statistics on the theorems in the dataset, including:
-
-* Counts of theorems by AMS classification
-* Data on which theorems have unsorried formal proofs, informal proofs, or background lemma statements.
-
 ## Licensing
 
 Copyright 2025 Project Numina. All software is licensed under the Apache License,
@@ -78,94 +71,6 @@ materials distributed here under the Apache 2.0 license are distributed on an
 "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the license for the specific language governing permissions and
 limitations under the license.
-
-## Sorry Variants and Benchmark JSONLs
-
-The scripts under [`scripts/create_sorries/`](scripts/create_sorries) derive
-benchmark artifacts from the main `LiveLeanTriathlon/` tree by rewriting proofs to
-`sorry`. There are two kinds of output: directory variants (full Lake libraries
-the agent can build against) and JSONL files (one row per problem, suitable for
-batch evaluation).
-
-Both scripts are pure Python (require Python 3.10+) and read from the
-canonical `LiveLeanTriathlon/` source. The directory variants
-(`LiveLeanTriathlonSorry/`, `LiveLeanTriathlonSorryNoLemmas/`) are gitignored and
-regenerated on demand. The three JSONL files under
-[`scripts/create_sorries/`](scripts/create_sorries) *are* checked in — CI
-re-runs the generator and fails if the working tree drifts, so any source
-change that affects them must be regenerated and committed.
-
-### `create_sorries.py` — directory variants
-
-Generates two sibling directories at the project root:
-
-- **`LiveLeanTriathlonSorry/`** — a copy of `LiveLeanTriathlon/` with every
-  `theorem`/`lemma` proof replaced by `:= by sorry`. Imports of
-  `LiveLeanTriathlon.Mathlib.*` and `LiveLeanTriathlon.Util.*` continue to point at
-  the original library; other `LiveLeanTriathlon.*` imports are rewritten to the
-  sibling tree. A top-level `LiveLeanTriathlonSorry.lean` index is also produced.
-- **`LiveLeanTriathlonSorryNoLemmas/`** — same layout, but only `@[AMS]`-tagged
-  main theorems keep `:= by sorry`. Helper lemmas are demoted to `axiom`s, so
-  each non-Mathlib folder exposes exactly one open goal.
-
-Both variants are registered as `lean_lib` targets in `lakefile.toml`.
-
-```bash
-# Generate both variants (default).
-python3 scripts/create_sorries/create_sorries.py
-
-# Generate only one.
-python3 scripts/create_sorries/create_sorries.py --variant Sorry
-python3 scripts/create_sorries/create_sorries.py --variant SorryNoLemmas
-
-# Build a variant.
-lake build LiveLeanTriathlonSorry
-lake build LiveLeanTriathlonSorryNoLemmas
-```
-
-### `create_statement_jsonl.py` — flat benchmark JSONLs
-
-Writes three JSONL files into `scripts/create_sorries/`. Each row is a single
-problem; the agent's task is to prove (or formalize) the goal in the row's
-`code` field. Project-specific imports are collapsed to `import Mathlib` and
-the `module` directive plus `@[AMS ...]` / `@[blueprint ...]` decorators are
-stripped, so each row stands alone.
-
-| File | Granularity | What `code` contains |
-|---|---|---|
-| `statement.jsonl` | one row per `theorem`/`lemma` | imports + opens + everything from the file's start through the target, with all preceding proofs replaced by `sorry` |
-| `statements_hard.jsonl` | one row per `@[AMS]` theorem | imports + opens + earlier same-file `@[AMS]` theorems as `axiom`s + the target with `sorry` |
-| `statements_autoformalization.jsonl` | one row per `@[AMS]` theorem | imports + opens + the target with `sorry` only — *plus* `title`, `informal_statement`, and `informal_proof` fields drawn from the matching `blueprint/src/theorems/*.tex` file |
-
-Base schema (all three files):
-
-```json
-{"project_name": "...", "name": "...", "type": "theorem"|"lemma", "code": "..."}
-```
-
-`statement.jsonl` rows from a file that imports project-local siblings (e.g.
-`MainTheorem.lean` importing `BackgroundLemmas.lean`) additionally carry an
-`imported_file` field with the transitive sibling content (proofs replaced by
-`sorry`, separated by `-- File: <module>` markers). Rows whose file has no
-project-local imports omit the field.
-
-`statements_autoformalization.jsonl` adds `title`, `informal_statement`, and
-`informal_proof`. The script locates the relevant blueprint chapter by
-`\lean{<name>}` lookup against `blueprint/src/theorems/*.tex`. `title` comes
-from the `\begin{theorem}[…]` optional argument (falling back to the chapter
-heading), `informal_statement` is the body of the matching theorem
-environment with `\label`/`\lean`/`\uses` stripped, and `informal_proof` is
-the *entire* tex file content — chapter-level context for the whole proof,
-not just the prose for one declaration.
-
-```bash
-python3 scripts/create_sorries/create_statement_jsonl.py
-```
-
-Both scripts are exercised in the `build_sorry_variants` CI job
-([.github/workflows/build-project-and-blueprint.yml](.github/workflows/build-project-and-blueprint.yml)),
-which generates the variant trees, builds them with Lake, generates the JSONL
-files, and validates each row's schema.
 
 ## Acknowledgements
 
