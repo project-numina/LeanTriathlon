@@ -1,814 +1,716 @@
 [
   {
-    "project_name": "AndersonTheorem",
-    "name": "anderson",
-    "title": "Anderson's theorem",
-    "estimated_pages": 8,
-    "explanation": "Requires the Brunn-Minkowski / Prekopa-Leindler machinery for convex bodies plus a layer-cake decomposition of the unimodal integrand."
+    "project_name": "FeitThompsonTheorem",
+    "name": "feit_thompson",
+    "title": "Feit–Thompson theorem",
+    "estimated_pages": 255,
+    "explanation": "The full theorem (every odd-order finite group is solvable) requires the entire 255-page Feit-Thompson argument: local analysis classifying maximal subgroups, exceptional/coherent character theory and the Dade isometry, and Thompson's generators-and-relations elimination of the final configuration."
+  },
+  {
+    "project_name": "FriedlanderIwaniecTheorem",
+    "name": "friedlander_iwaniec",
+    "title": "Friedlander--Iwaniec theorem",
+    "estimated_pages": 90,
+    "explanation": "Infinitude of primes of the form a^2+b^4 needs Friedlander-Iwaniec's ~100-page parity-sensitive asymptotic sieve for primes, with delicate Type I/II bilinear-form estimates and the 'spin' of Gaussian ideals to handle this density-X^{3/4} sparse sequence."
+  },
+  {
+    "project_name": "GreenTaoTheorem",
+    "name": "Nat.Prime.greenTao",
+    "title": "Green–Tao theorem",
+    "estimated_pages": 90,
+    "explanation": "The full Green-Tao result requires Szemeredi's theorem (itself a major graduate theorem), a relative/transference Szemeredi theorem against a pseudorandom measure, and the Goldston-Pintz-Yildirim sieve construction enveloping the primes, all of which the formal statement demands in full generality for arbitrary k."
+  },
+  {
+    "project_name": "RobinTheorem",
+    "name": "robin",
+    "title": "Robin's theorem",
+    "estimated_pages": 80,
+    "explanation": "The formalized statement is the full biconditional with the Riemann Hypothesis, so the reverse direction effectively requires proving RH; even granting that, Robin's 1984 forward analysis uses Gronwall's maximal-order asymptotics, Mertens' third theorem, superabundant/colossally-abundant number theory and explicit zero-free-region estimates for zeta."
+  },
+  {
+    "project_name": "LinnikTheorem",
+    "name": "linnik",
+    "title": "Linnik's theorem",
+    "estimated_pages": 60,
+    "explanation": "The least prime in an arithmetic progression bound requires the full analytic machinery of Linnik's proof: log-free zero-density estimates for Dirichlet L-functions, the Deuring-Heilbronn phenomenon repelling exceptional Siegel zeros, and zero-free regions, the deepest result in the set."
+  },
+  {
+    "project_name": "SzemerediTheorem",
+    "name": "szemeredi",
+    "title": "Szemerédi's Theorem",
+    "estimated_pages": 60,
+    "explanation": "The formal statement is the full Szemeredi theorem (positive upper density forces arbitrarily long arithmetic progressions); every known route is deep research-level - Furstenberg's ergodic-theoretic multiple recurrence, Gowers' Fourier analysis with the inverse theorem for Gowers norms, or Szemeredi's regularity lemma - each requiring extensive machinery far beyond undergraduate."
+  },
+  {
+    "project_name": "TwoNinety",
+    "name": "two_ninety_theorem",
+    "title": "The 290 Theorem",
+    "estimated_pages": 50,
+    "explanation": "Bhargava-Hanke's proof escalates lattices up to rank 7 (~20000 cases) and certifies universality of the remaining forms via theta-series identities and analytic bounds on Fourier coefficients of cusp forms, requiring substantial modular-forms machinery plus large verified computations."
+  },
+  {
+    "project_name": "KoukoulopoulosMaynard",
+    "name": "koukoulopoulos_maynard",
+    "title": "Duffin–Schaeffer conjecture / Koukoulopoulos–Maynard theorem",
+    "estimated_pages": 45,
+    "explanation": "This is the full Duffin-Schaeffer conjecture (Koukoulopoulos-Maynard, Annals 2020), whose proof builds the novel combinatorial theory of GCD graphs and their 'quality' combined with the anatomy of integers and sieve theory to rule out compressed/large-GCD structures, an entire research-paper's worth of new machinery."
+  },
+  {
+    "project_name": "ChenTheorem",
+    "name": "chen",
+    "title": "Chen's theorem",
+    "estimated_pages": 30,
+    "explanation": "The formalized statement is the full Chen's theorem (every sufficiently large even number = prime + (prime or semiprime)), whose proof is a celebrated, long and intricate application of the weighted (Chen's double) sieve combined with the Bombieri-Vinogradov theorem on primes in arithmetic progressions and Jurkat-Richert-type sieve bounds, well beyond undergraduate analytic number theory even in Ross's simplified form."
+  },
+  {
+    "project_name": "FareySequence",
+    "name": "farey_riemann_abs",
+    "title": "Farey Sequence",
+    "estimated_pages": 30,
+    "explanation": "Formalizes the full Franel-Landau equivalence (an iff) between RH and the L^1 discrepancy bound on Farey fractions, which requires both directions of the deep analytic-number-theory link (Mellin/Perron-type transforms and the explicit-formula apparatus connecting Farey discrepancy to zeros of zeta), making it as demanding as developing the surrounding zeta-function machinery."
+  },
+  {
+    "project_name": "MergelyanTheorem",
+    "name": "mergelyan",
+    "title": "Mergelyan's theorem",
+    "estimated_pages": 30,
+    "explanation": "Uniform polynomial approximation on compacts with connected complement requires the deep constructive machinery of Mergelyan/Vitushkin: Cauchy-transform integral representations, smoothing via partitions of unity, continuity of analytic capacity, and Runge-type pole-pushing, well beyond undergraduate complex analysis."
+  },
+  {
+    "project_name": "RothTheorem",
+    "name": "roth",
+    "title": "Roth's theorem",
+    "estimated_pages": 30,
+    "explanation": "Full Thue-Siegel-Roth theorem (irrationality measure exactly 2 for algebraic irrationals), whose proof needs the auxiliary-multivariate-polynomial method, Siegel's lemma from geometry of numbers, and Roth's lemma on the index/Wronskians of polynomials proved by induction on the number of variables."
+  },
+  {
+    "project_name": "CameronErdos",
+    "name": "cameron_erdos",
+    "title": "Cameron–Erdős conjecture",
+    "estimated_pages": 25,
+    "explanation": "Proving the number of sum-free subsets of [n] is O(2^{n/2}) requires either Green's discrete Fourier analysis with the hypergraph container method or Sapozhenko's Kleitman-Winston/graph-container approach, a substantial body of modern additive-combinatorics research machinery."
+  },
+  {
+    "project_name": "KroneckerWeberTheorem",
+    "name": "KroneckerWeber",
+    "title": "Kronecker–Weber theorem",
+    "estimated_pages": 25,
+    "explanation": "The formalized statement is the full Kronecker-Weber theorem (every abelian extension of Q lies in a cyclotomic field), whose proof requires either global class field theory (Artin reciprocity) or the ramification-group approach reducing to the local Kronecker-Weber theorem plus Minkowski's discriminant bound, all substantial graduate algebraic number theory."
+  },
+  {
+    "project_name": "Fifteen",
+    "name": "fifteen_theorem",
+    "title": "The 15 Theorem",
+    "estimated_pages": 25,
+    "explanation": "The integer-symmetric-matrix (even) form of the 15 theorem needs Bhargava's escalator-lattice induction together with the arithmetic theory of ternary/quaternary positive-definite quadratic forms (local representability, genus theory, and case analysis over the escalator tree), substantial graduate quadratic-form machinery."
+  },
+  {
+    "project_name": "FreimanTheorem",
+    "name": "Freiman",
+    "title": "Freiman's Theorem",
+    "estimated_pages": 20,
+    "explanation": "The full structure theorem requires the chain of additive-combinatorics machinery: Plunnecke-Ruzsa inequalities, the Ruzsa modeling lemma via Freiman homomorphisms, Bogolyubov's lemma with Fourier analysis on Bohr sets, and Minkowski's geometry-of-numbers to extract a bounded-dimension generalized arithmetic progression."
+  },
+  {
+    "project_name": "BrunTitchmarshTheorem",
+    "name": "brunTitchmarsh",
+    "title": "Brun–Titchmarsh theorem",
+    "estimated_pages": 18,
+    "explanation": "The sharp constant-2 bound on primes in an arithmetic progression in a short interval requires the Montgomery-Vaughan large sieve (or Selberg's sieve with the bilinear error analysis), substantial analytic number theory machinery well beyond undergraduate level."
+  },
+  {
+    "project_name": "GelfondSchneiderTheorem",
+    "name": "gelfond_scheider",
+    "title": "Gelfond–Schneider theorem",
+    "estimated_pages": 18,
+    "explanation": "Gelfond-Schneider's seventh-Hilbert-problem proof builds an auxiliary function via the Thue-Siegel-Dirichlet box principle (Siegel's lemma over algebraic integers), bounds its derivatives/values using complex-analytic interpolation and the maximum modulus principle, and derives a contradiction from arithmetic size (house) estimates; this transcendence machinery is well beyond undergraduate, though the formalized statement is garbled (it asserts the algebraic b is transcendental)."
+  },
+  {
+    "project_name": "HasseTheoremOnEllipticCurves",
+    "name": "HasseBound",
+    "title": "Hasse's theorem on elliptic curves",
+    "estimated_pages": 14,
+    "explanation": "Hasse's bound follows from showing the degree map on End(E) is a positive-definite quadratic form and applying Cauchy-Schwarz to the Frobenius-related pairing, but developing the elliptic-curve group law over finite fields, the Frobenius endomorphism, separability/degree of isogenies, and #E = deg(1-Frob) is substantial graduate arithmetic geometry."
+  },
+  {
+    "project_name": "ErdosKacTheorem",
+    "name": "erdos_kac",
+    "title": "Erdős–Kac theorem",
+    "estimated_pages": 12,
+    "explanation": "Establishes the full normal-distribution limit law via the method of moments (Granville-Soundararajan style) or the original Brun-sieve-plus-Lindeberg-CLT argument, requiring graduate analytic number theory (mean values of additive functions, sieve error control) well beyond the undergraduate CLT it superficially resembles."
+  },
+  {
+    "project_name": "GrushkoTheorem",
+    "name": "grushko",
+    "title": "Grushko theorem",
+    "estimated_pages": 12,
+    "explanation": "Grushko's theorem on the rank of a free product is proved either via Stallings' equivariant foldings of group actions on covering complexes/trees or via Bass-Serre theory and graphs of groups, both requiring graduate geometric group theory and algebraic topology beyond the undergraduate curriculum."
   },
   {
     "project_name": "Apery",
     "name": "apery",
-    "title": "Irrationality of zeta(3)",
-    "estimated_pages": 15,
-    "explanation": "Apery's proof needs delicately constructed integer-recurrence sequences and sharp asymptotic/divisibility estimates to force irrationality."
+    "title": "Apery",
+    "estimated_pages": 10,
+    "explanation": "Full irrationality of zeta(3) is formalized, requiring Apery's delicate construction of two integer-recurrence sequences (Apery numbers), nontrivial control of the lcm-denominators to keep them near-integral, and a Diophantine-approximation irrationality criterion, all of which take substantial graduate-level development to make rigorous."
+  },
+  {
+    "project_name": "JordanSchurTheorem",
+    "name": "jordan_schur",
+    "title": "Jordan–Schur theorem",
+    "estimated_pages": 9,
+    "explanation": "Even though the formalized statement only asks for existence of some bounding function f(n) (no explicit bound), establishing it still needs the full Frobenius-Blichfeldt argument using character theory and a quantitative bound on commutators of near-identity unitary matrices, which is substantial graduate group-representation machinery."
+  },
+  {
+    "project_name": "BrunTheorem",
+    "name": "brun",
+    "title": "Brun's theorem",
+    "estimated_pages": 8,
+    "explanation": "Requires Brun's combinatorial sieve (his 'pure sieve', a truncated inclusion-exclusion) to bound the twin-prime counting function by O(x/log^2 x), from which summability follows; developing the sieve machinery and the careful error-term estimates is the bulk of the work, beyond standard undergraduate number theory."
+  },
+  {
+    "project_name": "CriticalLineTheorem",
+    "name": "critical_line",
+    "title": "Critical Line Theorem",
+    "estimated_pages": 8,
+    "explanation": "The statement is exactly Hardy's 1914 theorem (infinitely many zeta zeros on Re(s)=1/2), proved via Hardy's Z-function and the theta/Jacobi transformation formula together with the approximate functional equation and integral/moment estimates of Z(t), requiring genuine analytic number theory beyond a basic complex analysis course."
+  },
+  {
+    "project_name": "KaplanskyTheoremOnQuadraticForms",
+    "name": "kaplansky_two",
+    "title": "Kaplansky's theorem on quadratic forms",
+    "estimated_pages": 8,
+    "explanation": "This 2003 result combines Gauss's quartic-residue criterion (2 is a 4th power mod p iff p = x^2+64y^2) and the Barrucand-Cohn octic criterion (-4 is an 8th power iff p = x^2+32y^2) with genus theory of binary quadratic forms and higher reciprocity, requiring well beyond undergraduate number theory."
+  },
+  {
+    "project_name": "LukacsProportionSumIndependenceTheorem",
+    "name": "lukacs_proportion_sum_independence_iff",
+    "title": "Lukacs's proportion-sum independence theorem",
+    "estimated_pages": 8,
+    "explanation": "The hard (only-if) direction is a characterization theorem proved via Laplace transforms/characteristic functions reduced to a Cauchy-type functional equation forcing the gamma law, requiring graduate mathematical-statistics machinery plus the measure-theoretic setup of HasLaw and the gamma measure."
+  },
+  {
+    "project_name": "WaringProblem",
+    "name": "waring",
+    "title": "Waring's Problem",
+    "estimated_pages": 8,
+    "explanation": "The formalized statement only asserts existence of a uniform bound t (the Hilbert-Waring theorem), proved by Hilbert via algebraic polynomial identities (the Hilbert identity expressing power-sum integrals as sums of k-th powers) and an induction; clever and several pages beyond undergraduate but far easier than determining g(n) via the circle method."
+  },
+  {
+    "project_name": "ZsigmondyTheorem",
+    "name": "zsigmondy_theorem",
+    "title": "Zsigmondy's theorem",
+    "estimated_pages": 8,
+    "explanation": "The proof factors a^n - b^n via homogeneous cyclotomic polynomials Phi_n(a,b), shows any primitive prime divides Phi_n, then uses multiplicative-order arguments plus the Lifting-the-Exponent lemma (Birkhoff-Vandiver) and analytic lower bounds on Phi_n(a,b) to force a contradiction, with delicate separate handling of the n=2 power-of-two and (a,b,n)=(2,1,6) exceptions; the formalized statement is the full general theorem with both exceptions, requiring substantial cyclotomic-polynomial and p-adic-valuation machinery beyond undergraduate number theory."
+  },
+  {
+    "project_name": "JacobsonMorozovTheorem",
+    "name": "Jacobson_Morozov",
+    "title": "Jacobson-Morozov Theorem",
+    "estimated_pages": 7,
+    "explanation": "Driven by graduate structure theory of semisimple Lie algebras: an induction on dimension using the Killing form, representation theory of sl2, and a cohomological/centralizer argument to extend a nilpotent ad-nilpotent element to a full sl2-triple."
+  },
+  {
+    "project_name": "NagellLutzTheorem",
+    "name": "NagellLutz2",
+    "title": "Nagell–Lutz theorem",
+    "estimated_pages": 7,
+    "explanation": "Full theorem driven by graduate elliptic-curve machinery: p-adic valuations / the formal group filtration on E1(Qp) and reduction mod p to bound torsion, plus the discriminant-divisibility (y^2 | Delta) step, all of which must be developed beyond undergraduate algebra."
   },
   {
     "project_name": "AztecDiamond",
     "name": "aztecDiamond_tiling",
-    "title": "Aztec Diamond theorem",
-    "estimated_pages": 18,
-    "explanation": "Counting domino tilings exactly requires domino-shuffling or non-intersecting lattice-path (Lindstrom-Gessel-Viennot) bijections not seen in undergraduate combinatorics."
+    "title": "Aztec-Diamonds",
+    "estimated_pages": 6,
+    "explanation": "The full count 2^(n(n+1)/2) for all n is formalized; even the 'simple' proofs require real machinery such as the Lindstrom-Gessel-Viennot lemma with Hankel/Schroder-number determinant evaluations, or the domino-shuffling/field-of-arrows induction, none of which is standard undergraduate material."
   },
   {
-    "project_name": "BanachMazur",
-    "name": "banach_mazur",
-    "title": "Banach-Mazur theorem",
+    "project_name": "BrunnMinkowski",
+    "name": "EuclideanSpace.volume_pow_add_le",
+    "title": "Brunn-Minkowski Inequality (Additive Form)",
+    "estimated_pages": 6,
+    "explanation": "The additive Brunn-Minkowski inequality in general dimension n needs either the Hadwiger-Ohmann induction through boxes/finite unions plus measure-theoretic limiting arguments, or the Prekopa-Leindler functional approach with induction on dimension via Fubini; conceptually graduate-level measure theory and convex geometry."
+  },
+  {
+    "project_name": "BrunnMinkowski",
+    "name": "EuclideanSpace.volume_pow_mul_le",
+    "title": "Brunn-Minkowski Inequality (Multiplicative Form)",
+    "estimated_pages": 6,
+    "explanation": "The multiplicative (dimension-free-exponent) form is equivalent to the additive Brunn-Minkowski via weighted AM-GM, so it carries the same Prekopa-Leindler/Hadwiger-Ohmann machinery and induction-on-dimension burden as the additive version."
+  },
+  {
+    "project_name": "Carmichael",
+    "name": "carmichael",
+    "title": "Carmichael's theorem",
+    "estimated_pages": 6,
+    "explanation": "Establishing a primitive prime divisor for Lucas sequences U_n (n outside {1,2,6,12}) uses factorization via cyclotomic polynomials Phi_n at the roots, lower bounds on cyclotomic values versus the radical of n, and Yabuta's reduction to Fibonacci/Fermat sequences; technical elementary number theory beyond standard coursework."
+  },
+  {
+    "project_name": "DillerDressTheorem",
+    "name": "diller_dress",
+    "title": "Diller–Dress theorem",
+    "estimated_pages": 6,
+    "explanation": "The going-down of the Pythagorean property under finite extensions rests on the algebraic theory of quadratic forms over fields, specifically Scharlau transfer (trace forms) and Witt-ring arguments controlling sums of squares, which is graduate-level quadratic-form theory not in the standard undergraduate algebra curriculum."
+  },
+  {
+    "project_name": "PicardTheorem",
+    "name": "picard",
+    "title": "Picard theorem",
+    "estimated_pages": 6,
+    "explanation": "Little Picard theorem: the formalized 'omits two values implies constant' statement still needs either the elliptic modular lambda covering of the twice-punctured plane or the Bloch/Landau-theorem route, machinery well beyond a basic complex-analysis course."
+  },
+  {
+    "project_name": "PolygonalNumberTheorem",
+    "name": "polygonal_number_theorem_odd",
+    "title": "Polygonal Number Theorem (Odd Case)",
+    "estimated_pages": 6,
+    "explanation": "Nathanson's proof of the odd case rests on Cauchy's lemma producing a four-square representation with prescribed root-sum, which in turn invokes Gauss's three-square theorem (genus theory / ternary quadratic forms), the main source of difficulty beyond undergraduate number theory."
+  },
+  {
+    "project_name": "RamanujanNagellEquation",
+    "name": "ramanujan_nagell",
+    "title": "Ramanujan–Nagell equation",
+    "estimated_pages": 6,
+    "explanation": "Nagell's proof factors 2^n - 7 = x^2 in the ring of integers of Q(sqrt(-7)) using unique factorization and the unit group {+-1}, then a recurrence/2-adic argument forces n in {3,4,5,7,15}; the algebraic-number-theory setup (class number one, factorization in Z[(1+sqrt(-7))/2]) is the graduate-level core."
+  },
+  {
+    "project_name": "TverbergTheorem",
+    "name": "tverberg",
+    "title": "Tverberg's theorem",
+    "estimated_pages": 6,
+    "explanation": "The formalized statement is the full affine Tverberg theorem for all d,r; Sarkaria's proof uses a tensor/Kronecker-product lifting reducing it to the colorful Caratheodory theorem (Barany), a compact but conceptually nontrivial argument with the colorful Caratheodory lemma itself needing proof."
+  },
+  {
+    "project_name": "AndersonTheorem",
+    "name": "anderson",
+    "title": "Anderson's theorem",
     "estimated_pages": 5,
-    "explanation": "A standard functional-analysis embedding argument using a dense sequence of functionals from the unit ball of the dual."
-  },
-  {
-    "project_name": "BauerFike",
-    "name": "bauer_fike",
-    "title": "Bauer-Fike theorem",
-    "estimated_pages": 3,
-    "explanation": "Short numerical-linear-algebra estimate bounding eigenvalue perturbation via the condition number of the eigenvector matrix."
-  },
-  {
-    "project_name": "BeckmanQuarlesTheorem",
-    "name": "beckmann_quarles",
-    "title": "Beckman-Quarles theorem",
-    "estimated_pages": 10,
-    "explanation": "A clever rigidity argument showing unit-distance preservation propagates to all distances, via auxiliary point configurations (and valid only in dimension >= 2)."
-  },
-  {
-    "project_name": "BergeTheorem",
-    "name": "SimpleGraph.Subgraph.IsMatching.berge",
-    "title": "Berge's theorem",
-    "estimated_pages": 4,
-    "explanation": "Graph-theoretic argument on symmetric differences of matchings and augmenting paths, slightly beyond standard curriculum."
-  },
-  {
-    "project_name": "BondyTheorem",
-    "name": "bondy",
-    "title": "Bondy's theorem",
-    "estimated_pages": 3,
-    "explanation": "The linear-algebra (dimension/independence) method over a vector space applied to a set system."
+    "explanation": "The general n-dimensional statement is formalized; the standard proof goes through the Brunn-Minkowski inequality applied to convex superlevel sets (the layer-cake decomposition of the unimodal f), which is genuine graduate convex-geometry machinery rather than a one-dimensional rearrangement."
   },
   {
     "project_name": "BorsukUlamTheorem",
     "name": "borsuk_ulam",
-    "title": "Borsuk-Ulam theorem",
-    "estimated_pages": 14,
-    "explanation": "Needs algebraic-topology degree theory (or equivariant homology) to obstruct an odd map from the sphere avoiding zero."
+    "title": "Borsuk–Ulam theorem",
+    "estimated_pages": 5,
+    "explanation": "The full S^n version is formalized; the proof needs algebraic-topology machinery (degree theory or Z/2 homology/cohomology of projective spaces with the Hurewicz and universal-coefficient theorems), or alternatively the combinatorial Tucker's lemma, all requiring development well beyond undergraduate topology."
   },
   {
-    "project_name": "BrascampLieb",
-    "name": "upperBound",
-    "title": "Brascamp-Lieb upper bound (localised, regularised)",
-    "estimated_pages": 50,
-    "explanation": "Research-level multilinear harmonic analysis: heat-flow/induction-on-scales monotonicity for general Brascamp-Lieb data with the technical 'perceptive' regularisation framework."
+    "project_name": "JacobiFourSquareTheorem",
+    "name": "jacobi",
+    "title": "Jacobi's Four-Square Theorem",
+    "estimated_pages": 5,
+    "explanation": "The classical proof represents the number of four-square representations via the fourth power of the Jacobi theta function and identifies it with an Eisenstein series / Lambert series using the Jacobi triple product and theta-function identities, which is doable elementarily but requires several pages of theta-function machinery beyond undergraduate analysis."
+  },
+  {
+    "project_name": "SchauderFixedPointTheorem",
+    "name": "SchauderFixedPointTheorem",
+    "title": "Schauder fixed-point theorem",
+    "estimated_pages": 5,
+    "explanation": "Infinite-dimensional fixed-point theorem reducing to Brouwer's fixed-point theorem via finite-dimensional approximation by a partition-of-unity (Schauder projection) onto convex hulls of finite epsilon-nets in the compact convex set of a locally convex TVS."
+  },
+  {
+    "project_name": "BeckmanQuarlesTheorem",
+    "name": "beckmann_quarles",
+    "title": "Beckman–Quarles theorem",
+    "estimated_pages": 4,
+    "explanation": "The genuine theorem (d>=2) relies on the structural rigidity of unit-distance graphs, e.g. propagating preserved unit distances through rigid simplex configurations to a dense set of distances; note the formal statement omits the d>=2 hypothesis so it is actually false for d=1 where a unit-shift counterexample exists, but the hard mathematical content is the rigidity argument."
+  },
+  {
+    "project_name": "CarlsonTheorem",
+    "name": "carlson",
+    "title": "Carlson's theorem",
+    "estimated_pages": 4,
+    "explanation": "The proof divides f by the sine function (whose zeros are the integers) and applies the Phragmen-Lindelof principle in a half-plane, using the exponential-type bound and the sub-pi growth on the imaginary axis to force the quotient to vanish; intermediate complex analysis a step beyond the undergraduate core."
+  },
+  {
+    "project_name": "ErdosDushnikMillerTheorem",
+    "name": "erdos_dushnik_miller",
+    "title": "Erdős–Dushnik–Miller theorem",
+    "estimated_pages": 4,
+    "explanation": "This infinite partition relation (clique of size |V| or a countably infinite independent set) requires transfinite recursion over cardinals and a tree/elementary-submodel style argument in infinitary combinatorics, genuinely set-theoretic machinery beyond undergraduate combinatorics."
+  },
+  {
+    "project_name": "HardyLittlewoodTauberian",
+    "name": "tauberian",
+    "title": "Hardy–Littlewood Tauberian theorem",
+    "estimated_pages": 4,
+    "explanation": "Karamata's elegant proof reduces the Tauberian statement to approximating a step function by polynomials (Weierstrass approximation) applied to the positive-coefficient series, using essentially only real analysis but with a genuinely non-obvious approximation argument slightly above routine undergraduate work."
+  },
+  {
+    "project_name": "KolmogorovThreeSeriesNecessary",
+    "name": "kolmogorov_three_series_necessity",
+    "title": "Kolmogorov's Three Series, necessity",
+    "estimated_pages": 4,
+    "explanation": "The necessity direction is the harder one, requiring Kolmogorov's inequality/two-series theorem and a symmetrization plus martingale (or CLT-type) variance argument to deduce the truncated variance and mean series converge, all in measure-theoretic probability beyond undergraduate level."
+  },
+  {
+    "project_name": "TotientGrowthRate",
+    "name": "totient_lower_bound",
+    "title": "Lower bound on totient growth",
+    "estimated_pages": 4,
+    "explanation": "The explicit bound phi(n) > n/(e^gamma loglog n + 3/loglog n) rests on Mertens' third theorem (product over primes ~ e^{-gamma}/log x) plus Chebyshev-type estimates and careful error control, modestly beyond the standard undergraduate analytic-number-theory toolkit."
+  },
+  {
+    "project_name": "SinkhornTheorem",
+    "name": "sinkhorn_existence",
+    "title": "Sinkhorn's theorem",
+    "estimated_pages": 4,
+    "explanation": "Existence of diagonal scalings to doubly stochastic form, proved via a compactness/continuity or convex-optimization (entropy minimization) argument on positive matrices, beyond routine undergraduate material but using only finite-dimensional analysis."
+  },
+  {
+    "project_name": "TwoFactorTheorem",
+    "name": "two_factor_theorem",
+    "title": "2-factor theorem",
+    "estimated_pages": 3,
+    "explanation": "Petersen's proof orients the graph via an Eulerian circuit to get an in/out-degree-k digraph, then splits each vertex into a k-regular bipartite graph and decomposes it into k perfect matchings by Konig's theorem - standard advanced-undergraduate graph theory."
+  },
+  {
+    "project_name": "BanachMazur",
+    "name": "banach_mazur",
+    "title": "Banach-Mazur Theorem",
+    "estimated_pages": 3,
+    "explanation": "The full separable case is formalized; the proof embeds the space into C[0,1] (via C of the weak-* compact, metrizable dual unit ball plus a Peano space-filling surjection) using Hahn-Banach and weak-* compactness, which is graduate functional analysis beyond the undergraduate core."
   },
   {
     "project_name": "BrooksTheorem",
     "name": "brooks_theorem",
     "title": "Brooks' theorem",
-    "estimated_pages": 6,
-    "explanation": "Greedy-colouring plus careful case analysis of connectivity and exceptional (complete / odd-cycle) graphs."
-  },
-  {
-    "project_name": "BrunTheorem",
-    "name": "brun",
-    "title": "Brun's theorem (twin-prime reciprocals)",
-    "estimated_pages": 25,
-    "explanation": "Requires developing Brun's combinatorial sieve and its main-term/error analysis to bound the count of twin primes."
-  },
-  {
-    "project_name": "BrunTitchmarshTheorem",
-    "name": "brunTitchmarsh",
-    "title": "Brun-Titchmarsh theorem",
-    "estimated_pages": 20,
-    "explanation": "Needs the Selberg upper-bound sieve in arithmetic progressions with explicit handling of the totient and logarithmic main term."
-  },
-  {
-    "project_name": "BrunnMinkowski",
-    "name": "EuclideanSpace.volume_pow_add_le",
-    "title": "Brunn-Minkowski inequality (additive form)",
-    "estimated_pages": 10,
-    "explanation": "Measure-theoretic proof via the Hadwiger-Ohmann box induction or a 1-D Prekopa-Leindler bootstrap to n dimensions."
-  },
-  {
-    "project_name": "BrunnMinkowski",
-    "name": "EuclideanSpace.volume_pow_mul_le",
-    "title": "Brunn-Minkowski inequality (multiplicative form)",
-    "estimated_pages": 6,
-    "explanation": "Follows from the additive form by an AM-GM/homogeneity rescaling argument once the additive inequality is available."
-  },
-  {
-    "project_name": "CameronErdos",
-    "name": "cameron_erdos",
-    "title": "Cameron-Erdos conjecture",
-    "estimated_pages": 40,
-    "explanation": "The O(2^{n/2}) bound on sum-free sets needs Green/Sapozhenko-style container or Fourier-analytic counting machinery."
+    "estimated_pages": 3,
+    "explanation": "Formalizes the full classification; Lovasz's proof is upper-undergraduate combinatorics but genuinely involved, requiring a biconnectivity reduction, a careful greedy ordering via a spanning tree rooted to leave a neighbor uncolored, and special-case handling of the regular biconnected case."
   },
   {
     "project_name": "CaristiFixedPointTheorem",
     "name": "caristi",
     "title": "Caristi fixed-point theorem",
     "estimated_pages": 3,
-    "explanation": "A transfinite/Zorn or Ekeland variational-principle argument on a complete metric space; short but non-elementary."
-  },
-  {
-    "project_name": "CarlsonTheorem",
-    "name": "carlson",
-    "title": "Carlson's theorem",
-    "estimated_pages": 6,
-    "explanation": "Phragmen-Lindelof type growth control of an entire function of exponential type vanishing on the naturals."
-  },
-  {
-    "project_name": "Carmichael",
-    "name": "carmichael",
-    "title": "Carmichael's theorem (primitive divisors of Lucas sequences)",
-    "estimated_pages": 25,
-    "explanation": "Requires cyclotomic-polynomial factorisation of Lucas sequences and careful exclusion of all the small exceptional indices."
-  },
-  {
-    "project_name": "CartanBrauerHuaTheorem",
-    "name": "cartan_brauer_hua",
-    "title": "Cartan-Brauer-Hua theorem",
-    "estimated_pages": 5,
-    "explanation": "Division-ring algebra argument exploiting the conjugation-invariance of a subfield together with additive identities."
-  },
-  {
-    "project_name": "CasoratiWeierstrass",
-    "name": "casorati_weierstrass",
-    "title": "Casorati-Weierstrass theorem",
-    "estimated_pages": 2,
-    "explanation": "Short complex-analysis contradiction argument from the classification of isolated singularities."
-  },
-  {
-    "project_name": "ChenTheorem",
-    "name": "chen",
-    "title": "Chen's theorem",
-    "estimated_pages": 60,
-    "explanation": "A tour de force of weighted sieve theory (Chen's switching/two-dimensional sieve) showing every large even number is prime plus a product of at most two primes."
-  },
-  {
-    "project_name": "CondorcetJury",
-    "name": "condorcet_jury_theorem",
-    "title": "Condorcet's jury theorem",
-    "estimated_pages": 5,
-    "explanation": "Monotonicity of the binomial-tail majority probability in the jury size, requiring a careful combinatorial comparison."
-  },
-  {
-    "project_name": "ContinuousMappingAs",
-    "name": "ae_tendsto_comp_of_ae_tendsto_of_forall_continuousAt",
-    "title": "Continuous mapping theorem (almost-sure version)",
-    "estimated_pages": 3,
-    "explanation": "Mostly a measure-theoretic bookkeeping of almost-sure convergence through a function continuous on a full-measure set."
-  },
-  {
-    "project_name": "ContinuousMappingLaw",
-    "name": "ProbabilityMeasure.tendsto_map_of_forall_continuousAt",
-    "title": "Continuous mapping theorem (in distribution)",
-    "estimated_pages": 5,
-    "explanation": "Requires the portmanteau theorem and weak-convergence pushforward arguments handling the discontinuity set."
-  },
-  {
-    "project_name": "CriticalLineTheorem",
-    "name": "critical_line",
-    "title": "Critical line theorem (Hardy)",
-    "estimated_pages": 18,
-    "explanation": "Hardy's theorem on infinitely many zeros of zeta on the critical line via the functional equation and Hardy's Z-function/theta machinery."
-  },
-  {
-    "project_name": "DeBruijnErdos",
-    "name": "SimpleGraph.colorable_of_finitely_colorable",
-    "title": "De Bruijn-Erdos theorem (graph colouring)",
-    "estimated_pages": 5,
-    "explanation": "A compactness argument (Tychonoff / ultrafilters / Zorn) lifting finite k-colourability to the infinite graph."
-  },
-  {
-    "project_name": "DefinabilityNaturalsInRationals",
-    "name": "nat_definable_in_rat",
-    "title": "First-order definability of N in Q",
-    "estimated_pages": 22,
-    "explanation": "Julia Robinson's theorem, requiring Hasse-Minkowski local-global theory of quadratic forms to build the defining formula."
-  },
-  {
-    "project_name": "DifferenceSetContainsInterval",
-    "name": "exists_Ioo_subset_diff_self_of_measure_pos",
-    "title": "Steinhaus difference-set theorem",
-    "estimated_pages": 3,
-    "explanation": "A short Lebesgue-density / convolution-continuity argument; just beyond a first measure-theory course."
-  },
-  {
-    "project_name": "DillerDressTheorem",
-    "name": "diller_dress",
-    "title": "Diller-Dress theorem",
-    "estimated_pages": 10,
-    "explanation": "Field-theoretic descent of the Pythagorean property along a finite extension, using quadratic-form/valuation arguments."
-  },
-  {
-    "project_name": "Dilworth",
-    "name": "dilworth",
-    "title": "Dilworth's theorem",
-    "estimated_pages": 4,
-    "explanation": "Min-max duality between chain partitions and antichains, proved by induction or via Konig/Hall matching."
-  },
-  {
-    "project_name": "ErdosDushnikMillerTheorem",
-    "name": "erdos_dushnik_miller",
-    "title": "Erdos-Dushnik-Miller theorem",
-    "estimated_pages": 10,
-    "explanation": "Infinite-cardinal partition relation requiring transfinite induction and careful cardinal arithmetic on cliques and independent sets."
+    "explanation": "The proof builds a partial order x <= y iff dist(x,y) <= f(x)-f(y) and applies Zorn's lemma (using completeness and lower semicontinuity) to extract a minimal element that must be a fixed point; a short argument using graduate-flavored but elementary order/metric reasoning."
   },
   {
     "project_name": "ErdosGallaiTheorem",
     "name": "ErdosGallaiTheorem",
-    "title": "Erdos-Gallai theorem",
-    "estimated_pages": 7,
-    "explanation": "Graphicality criterion for degree sequences, proved via the inductive/exchange (Havel-Hakimi-flavoured) argument with the threshold inequalities."
-  },
-  {
-    "project_name": "ErdosKacTheorem",
-    "name": "erdos_kac",
-    "title": "Erdos-Kac theorem",
-    "estimated_pages": 25,
-    "explanation": "Probabilistic number theory: the method of moments combined with Mertens estimates and a Brun-sieve error control to prove a CLT for omega(n)."
-  },
-  {
-    "project_name": "FareySequence",
-    "name": "farey_riemann_abs",
-    "title": "Farey sequence / Riemann hypothesis equivalence",
-    "estimated_pages": 16,
-    "explanation": "The Franel-Landau equivalence between RH and the L1 discrepancy of Farey fractions, tying Mobius/Mertens estimates to zeta zeros."
-  },
-  {
-    "project_name": "FeitThompsonTheorem",
-    "name": "feit_thompson",
-    "title": "Feit-Thompson theorem",
-    "estimated_pages": 255,
-    "explanation": "The odd-order theorem: a monograph-length proof combining character theory, local group analysis, and generators-and-relations arguments."
-  },
-  {
-    "project_name": "Fifteen",
-    "name": "fifteen_theorem",
-    "title": "The 15 theorem",
-    "estimated_pages": 20,
-    "explanation": "Conway-Schneeberger/Bhargava: representability of all integers reduces to {1,...,15} via escalator lattices and a large finite case analysis of quadratic forms."
-  },
-  {
-    "project_name": "FinitelyManyPrimesDimOne",
-    "name": "Ring.krullDimLE_one_of_finite_primeSpectrum",
-    "title": "Finitely many primes implies dimension <= 1 (Stacks 0ALV)",
-    "estimated_pages": 4,
-    "explanation": "Commutative-algebra prime-avoidance/dimension argument exploiting Noetherianness and the finiteness of the spectrum."
+    "title": "Erdős–Gallai theorem",
+    "estimated_pages": 3,
+    "explanation": "The full characterization of graphical degree sequences (the iff) needs the harder existence direction, established by induction on the degree sum (Choudum) or a subrealization/edge-swapping construction (Tripathi et al.); this is involved but elementary graph theory, the constructive realization being the main work."
   },
   {
     "project_name": "Fitting",
     "name": "fitting",
     "title": "Fitting's theorem",
-    "estimated_pages": 6,
-    "explanation": "Group theory: the product of nilpotent normal subgroups is nilpotent, with the class bound proved via commutator-calculus and the lower central series."
-  },
-  {
-    "project_name": "FrankWolfe",
-    "name": "frank_wolfe_convergence_rate",
-    "title": "Convergence rate of Frank-Wolfe",
-    "estimated_pages": 5,
-    "explanation": "Convex-optimisation O(1/t) rate via the smoothness/descent lemma and duality-gap induction."
-  },
-  {
-    "project_name": "FreimanTheorem",
-    "name": "Freiman",
-    "title": "Freiman's theorem",
-    "estimated_pages": 50,
-    "explanation": "Additive combinatorics: sets of small doubling lie in bounded-dimension generalized arithmetic progressions, requiring Plunnecke-Ruzsa, Bogolyubov/Fourier, and Ruzsa modelling."
-  },
-  {
-    "project_name": "FriedlanderIwaniecTheorem",
-    "name": "friedlander_iwaniec",
-    "title": "Friedlander-Iwaniec theorem",
-    "estimated_pages": 90,
-    "explanation": "Primes of the form a^2+b^4: a landmark requiring the asymptotic sieve for primes and deep bilinear/Type-II sum estimates."
-  },
-  {
-    "project_name": "Froda",
-    "name": "Real.countable_not_continuousAt",
-    "title": "Froda's theorem",
-    "estimated_pages": 1,
-    "explanation": "Essentially undergraduate: the jump discontinuities of a monotone function inject into the rationals, hence are countable."
-  },
-  {
-    "project_name": "GaussLucas",
-    "name": "Complex.mem_convexHull_roots_of_mem_derivative_roots",
-    "title": "Gauss-Lucas theorem",
-    "estimated_pages": 2,
-    "explanation": "Short argument writing P'/P as a convex combination of pole directions over the roots of P."
-  },
-  {
-    "project_name": "GelfondSchneiderTheorem",
-    "name": "gelfond_scheider",
-    "title": "Gelfond-Schneider theorem",
-    "estimated_pages": 20,
-    "explanation": "Hilbert's seventh problem: transcendence via an auxiliary-function construction, derivative estimates, and a zero-counting interpolation argument."
-  },
-  {
-    "project_name": "GreenTaoTheorem",
-    "name": "Nat.Prime.greenTao",
-    "title": "Green-Tao theorem",
-    "estimated_pages": 80,
-    "explanation": "Arbitrarily long arithmetic progressions of primes, via a relative Szemeredi theorem and a pseudorandom (Goldston-Yildirim) majorant for the primes."
-  },
-  {
-    "project_name": "GrushkoTheorem",
-    "name": "grushko",
-    "title": "Grushko's theorem",
-    "estimated_pages": 14,
-    "explanation": "Geometric group theory: rank additivity of free products, proved via Stallings foldings on graphs of groups or Nielsen methods."
-  },
-  {
-    "project_name": "HardyLittlewoodTauberian",
-    "name": "tauberian",
-    "title": "Hardy-Littlewood Tauberian theorem",
-    "estimated_pages": 8,
-    "explanation": "Karamata's elegant proof approximating by polynomials in e^{-y} and a Weierstrass argument to recover the partial sums."
-  },
-  {
-    "project_name": "HasseTheoremOnEllipticCurves",
-    "name": "HasseBound",
-    "title": "Hasse's theorem on elliptic curves",
-    "estimated_pages": 20,
-    "explanation": "The point-count bound |#E - (q+1)| <= 2 sqrt q, via the Frobenius endomorphism, the dual isogeny, and positivity of the degree quadratic form."
-  },
-  {
-    "project_name": "HeightOnePrimesUfd",
-    "name": "Ideal.ufd_iff_height_one_primes_principal",
-    "title": "UFD iff height-1 primes principal (Stacks 0AFT)",
-    "estimated_pages": 4,
-    "explanation": "Commutative algebra: Kaplansky-style characterisation of UFDs through principal height-one primes."
-  },
-  {
-    "project_name": "Hinge",
-    "name": "hinge_forward",
-    "title": "Hinge theorem (law of cosines, forward)",
-    "estimated_pages": 1,
-    "explanation": "Elementary monotonicity of c^2 = a^2+b^2-2ab cos C in the angle C."
-  },
-  {
-    "project_name": "Hinge",
-    "name": "hinge_backward",
-    "title": "Hinge theorem (law of cosines, backward)",
-    "estimated_pages": 1,
-    "explanation": "The converse monotonicity, immediate from injectivity of cosine on [0, pi]."
-  },
-  {
-    "project_name": "Hinge",
-    "name": "hinge_iff_geometric",
-    "title": "Hinge theorem (geometric form)",
     "estimated_pages": 3,
-    "explanation": "Translating the law-of-cosines statement into Euclidean-space angles and distances requires some inner-product geometry setup."
+    "explanation": "A standard graduate group-theory result proved by commutator calculus and the three-subgroups lemma to bound the nilpotency class of MN by m+n; short once the commutator identities and lower-central-series bookkeeping are set up."
   },
   {
     "project_name": "HurwitzApproximation",
     "name": "hurwitz_approximation",
-    "title": "Hurwitz's approximation theorem",
-    "estimated_pages": 5,
-    "explanation": "Continued-fraction / Farey-mediant argument giving infinitely many approximations within 1/(sqrt5 q^2)."
-  },
-  {
-    "project_name": "InverseEigenvalue",
-    "name": "Module.End.inv_eigenvalue_iff",
-    "title": "Inverse eigenvalue theorem",
-    "estimated_pages": 1,
-    "explanation": "Essentially a one-line module/linear-algebra manipulation relating eigenvalues of an automorphism and its inverse."
-  },
-  {
-    "project_name": "JacobiFourSquareTheorem",
-    "name": "jacobi",
-    "title": "Jacobi's four-square theorem",
-    "estimated_pages": 18,
-    "explanation": "The r_4(n)=8 sigma*(n) formula via theta functions / modular forms of weight 2 (or an involved elementary lattice argument)."
-  },
-  {
-    "project_name": "JacobsonMorozovTheorem",
-    "name": "Jacobson_Morozov",
-    "title": "Jacobson-Morozov theorem",
-    "estimated_pages": 14,
-    "explanation": "Lie theory: completing a nilpotent element to an sl_2-triple, requiring representation theory of sl_2 and cohomological/vanishing arguments in semisimple Lie algebras."
-  },
-  {
-    "project_name": "JonesLemma",
-    "name": "jones",
-    "title": "Jones' lemma",
+    "title": "Hurwitz's Approximation Theorem",
     "estimated_pages": 3,
-    "explanation": "A general-topology cardinality argument bounding a closed discrete subspace of a separable normal space."
-  },
-  {
-    "project_name": "JordanSchurTheorem",
-    "name": "jordan_schur",
-    "title": "Jordan-Schur theorem",
-    "estimated_pages": 18,
-    "explanation": "Finite subgroups of GL_n(C) have an abelian normal subgroup of bounded index, via Jordan's eigenvalue-gap and commutator-shrinking arguments."
-  },
-  {
-    "project_name": "Joubert",
-    "name": "exists_generator_of_minpoly_with_some_zero_coeffs",
-    "title": "Joubert's theorem",
-    "estimated_pages": 12,
-    "explanation": "Degree-6 separable extensions admit a generator with a sextic minimal polynomial in reduced form, via invariant theory / resolvent manipulations."
-  },
-  {
-    "project_name": "KaplanskyTheoremOnQuadraticForms",
-    "name": "kaplansky_two",
-    "title": "Kaplansky's theorem on quadratic forms",
-    "estimated_pages": 18,
-    "explanation": "Determining representability of primes p = 9 mod 16 by x^2+32y^2 vs x^2+64y^2 needs class field theory / genus theory of binary quadratic forms."
-  },
-  {
-    "project_name": "KoebeQuarterTheorem",
-    "name": "koebe",
-    "title": "Koebe quarter theorem",
-    "estimated_pages": 8,
-    "explanation": "Geometric function theory: the area/Bieberbach |a_2| <= 2 bound for schlicht functions yields the 1/4-disc covering."
-  },
-  {
-    "project_name": "KolmogorovThreeSeriesNecessary",
-    "name": "kolmogorov_three_series_necessity",
-    "title": "Kolmogorov three-series theorem (necessity)",
-    "estimated_pages": 8,
-    "explanation": "Requires Kolmogorov's inequality and symmetrisation arguments for sums of independent random variables."
+    "explanation": "Hurwitz's approximation theorem is proved through the theory of continued fractions (showing one of three consecutive convergents satisfies the sqrt5 bound) or via Farey/mediant arguments, standard elementary number theory but requiring the somewhat involved convergent-comparison machinery."
   },
   {
     "project_name": "KolmogorovThreeSeriesSufficient",
     "name": "kolmogorov_three_series_sufficiency",
-    "title": "Kolmogorov three-series theorem (sufficiency)",
-    "estimated_pages": 8,
-    "explanation": "Uses the Kolmogorov maximal inequality and a martingale/variance bound to get almost-sure convergence of the series."
-  },
-  {
-    "project_name": "KoukoulopoulosMaynard",
-    "name": "koukoulopoulos_maynard",
-    "title": "Duffin-Schaeffer conjecture",
-    "estimated_pages": 60,
-    "explanation": "The recent Koukoulopoulos-Maynard resolution via the GCD-graph / anatomy-of-integers method and a sophisticated combinatorial weighting."
-  },
-  {
-    "project_name": "Kraft",
-    "name": "kraft",
-    "title": "Kraft's inequality",
-    "estimated_pages": 2,
-    "explanation": "Constructive coding-theory argument greedily placing codewords in a D-ary tree."
-  },
-  {
-    "project_name": "KroneckerWeberTheorem",
-    "name": "KroneckerWeber",
-    "title": "Kronecker-Weber theorem",
-    "estimated_pages": 35,
-    "explanation": "Every abelian extension of Q is cyclotomic, requiring ramification theory, higher ramification groups, and either class field theory or Hilbert's local methods."
-  },
-  {
-    "project_name": "KrullSeparationLemma",
-    "name": "krull_separation",
-    "title": "Krull's separation lemma",
-    "estimated_pages": 2,
-    "explanation": "A Zorn's-lemma argument producing a prime ideal disjoint from a given multiplicative set."
-  },
-  {
-    "project_name": "LagrangeTheorem",
-    "name": "lagrange",
-    "title": "Lagrange's theorem (number theory)",
-    "estimated_pages": 2,
-    "explanation": "A polynomial mod p has at most deg-many roots, by induction using division in the field Z/p."
+    "title": "Kolmogorov's Three Series, sufficiency",
+    "estimated_pages": 3,
+    "explanation": "The sufficiency direction follows from Kolmogorov's two-series theorem (via Kolmogorov's maximal inequality) on the centered truncated variables plus Borel-Cantelli to pass back to the original series, requiring graduate-level measure-theoretic probability machinery."
   },
   {
     "project_name": "LeCamTheorem",
     "name": "LeCamTheorem",
     "title": "Le Cam's theorem",
-    "estimated_pages": 8,
-    "explanation": "Poisson approximation with an explicit total-variation bound, via the coupling/Stein-Chen method for sums of independent Bernoullis."
-  },
-  {
-    "project_name": "LeastCommonMultipleLowerBound",
-    "name": "Nat.LCM_lower_bound",
-    "title": "LCM lower bound",
     "estimated_pages": 3,
-    "explanation": "The bound 2^n <= lcm(1..n), proved via the integral/binomial-coefficient trick for central binomial denominators."
+    "explanation": "The formalized bound (total variation of a sum of independent Bernoullis from Poisson <= 2 sum p_i^2) is proved by a coupling/Serfling argument bounding each Bernoulli-vs-Poisson term, modest graduate probability beyond undergraduate measure-theoretic probability."
   },
   {
     "project_name": "LevitzkyTheorem",
     "name": "levitzky_theorem",
     "title": "Levitzky's theorem",
-    "estimated_pages": 6,
-    "explanation": "Noncommutative ring theory: in a Noetherian ring every nil one-sided ideal is nilpotent, via a minimal-counterexample / annihilator argument."
-  },
-  {
-    "project_name": "LinnikTheorem",
-    "name": "linnik",
-    "title": "Linnik's theorem",
-    "estimated_pages": 120,
-    "explanation": "The least prime in an arithmetic progression is bounded polynomially, requiring the three deep 'Linnik phenomena' on zeros of Dirichlet L-functions (zero-free regions, log-free density, Deuring-Heilbronn repulsion)."
-  },
-  {
-    "project_name": "LukacsProportionSumIndependenceTheorem",
-    "name": "lukacs_proportion_sum_independence_iff",
-    "title": "Lukacs's proportion-sum independence theorem",
-    "estimated_pages": 14,
-    "explanation": "Characterises the gamma distribution by independence of X/(X+Y) and X+Y, via functional equations on Laplace transforms / characteristic functions."
+    "estimated_pages": 3,
+    "explanation": "Utumi's argument uses the ascending chain condition (here Noetherian on the opposite ring) to extract a maximal nilpotent ideal and reduce to a semiprime quotient, requiring graduate noncommutative ring theory on nil versus nilpotent ideals."
   },
   {
     "project_name": "LusinTheorem",
     "name": "lusin",
     "title": "Lusin's theorem",
-    "estimated_pages": 5,
-    "explanation": "Measurable functions are continuous off a small set, via Egorov's theorem and Tietze/regularity of Lebesgue measure."
-  },
-  {
-    "project_name": "McMillan",
-    "name": "mcmillan",
-    "title": "McMillan's theorem",
     "estimated_pages": 3,
-    "explanation": "Uniquely decodable codes satisfy Kraft's inequality, by the n-th power length-counting argument."
+    "explanation": "Standard real-analysis proof via approximating the measurable function by simple/continuous functions, Egorov's theorem to upgrade to near-uniform convergence, and an inner-regularity/Tietze extension step; modest material slightly beyond a first measure theory course."
   },
   {
-    "project_name": "MergelyanTheorem",
-    "name": "mergelyan",
-    "title": "Mergelyan's theorem",
-    "estimated_pages": 25,
-    "explanation": "Uniform polynomial approximation on compacta with connected complement, requiring Vitushkin/Runge constructions and delicate Cauchy-transform estimates."
+    "project_name": "PrekopaLeindler",
+    "name": "prekopa_leindler_dim1",
+    "title": "Main Theorem: Prékopa-Leindler inequality in dimension 1",
+    "estimated_pages": 3,
+    "explanation": "The 1D case has a short proof via a measure-transport/level-set (essential-supremum convolution) argument with the layer-cake formula and a Brunn-Minkowski-type 1D length bound; only modestly beyond undergraduate measure theory."
   },
   {
     "project_name": "MertensFirstTheorem",
     "name": "merten_first",
-    "title": "Mertens' first theorem",
-    "estimated_pages": 5,
-    "explanation": "The bound on sum of log p / p, via Chebyshev/Legendre estimates of the factorial's prime factorisation."
-  },
-  {
-    "project_name": "MittagLeffler",
-    "name": "IsMittagLeffler.mapShortExact",
-    "title": "Mittag-Leffler exactness of inverse limits",
-    "estimated_pages": 6,
-    "explanation": "Homological algebra: the Mittag-Leffler condition makes lim^1 vanish, giving exactness of inverse limits of short exact sequences over a countable poset."
+    "title": "Mertens' First Theorem",
+    "estimated_pages": 3,
+    "explanation": "Elementary analytic number theory: Legendre's formula for v_p(n!), Stirling's estimate for log(n!), and Abel partial summation give the bounded-difference estimate; mostly within reach of undergraduate analysis but requires assembling these prime-power summation arguments."
   },
   {
     "project_name": "MycielskiTheorem",
     "name": "mycielski",
     "title": "Mycielski's theorem",
-    "estimated_pages": 4,
-    "explanation": "The Mycielskian construction iteratively raises chromatic number while preserving triangle-freeness; requires an inductive chromatic-number lower bound."
-  },
-  {
-    "project_name": "NagellLutzTheorem",
-    "name": "NagellLutz1",
-    "title": "Nagell-Lutz theorem (integrality of torsion)",
-    "estimated_pages": 12,
-    "explanation": "Torsion points of an integral elliptic curve have integer coordinates, via the formal group / p-adic filtration of the curve's points."
-  },
-  {
-    "project_name": "NagellLutzTheorem",
-    "name": "NagellLutz2",
-    "title": "Nagell-Lutz theorem (y^2 divides discriminant)",
-    "estimated_pages": 6,
-    "explanation": "The divisibility refinement building on the integrality result, via the duplication formula and discriminant analysis."
-  },
-  {
-    "project_name": "NonSquareFreeWeird",
-    "name": "weird_squarefree_infinite",
-    "title": "Infinitely many weird numbers with non-squarefree odd part",
-    "estimated_pages": 15,
-    "explanation": "A specialised number-theoretic construction controlling abundancy and deficiency to manufacture infinitely many weird numbers of the prescribed shape."
-  },
-  {
-    "project_name": "OreTheorem",
-    "name": "ore_maximal_hamiltonian_cycle_free_graph",
-    "title": "Ore's theorem (maximal non-Hamiltonian lemma)",
-    "estimated_pages": 2,
-    "explanation": "A short structural lemma on edge-maximal non-Hamiltonian graphs feeding the main Ore argument."
-  },
-  {
-    "project_name": "OreTheorem",
-    "name": "ore_theorem",
-    "title": "Ore's theorem",
     "estimated_pages": 3,
-    "explanation": "The degree-sum Hamiltonicity criterion, via the standard longest-path / crossover argument."
-  },
-  {
-    "project_name": "PicardTheorem",
-    "name": "picard",
-    "title": "Little Picard theorem",
-    "estimated_pages": 14,
-    "explanation": "A non-constant entire function omits at most one value, requiring the modular lambda function (or Bloch/Schottky) covering-space machinery."
-  },
-  {
-    "project_name": "PolygonalNumberTheorem",
-    "name": "polygonal_number_theorem_odd",
-    "title": "Cauchy's polygonal number theorem (odd case)",
-    "estimated_pages": 12,
-    "explanation": "Cauchy's lemma on representing integers by four polygonal numbers, via the three-square theorem and an interval/parity argument on the quadratic form."
-  },
-  {
-    "project_name": "PolygonalNumberTheorem",
-    "name": "polygonal_number_theorem_even'",
-    "title": "Cauchy's polygonal number theorem (even case)",
-    "estimated_pages": 12,
-    "explanation": "The even-order companion case, again reducing to Gauss's three-square theorem with a separate Cauchy-lemma range analysis."
-  },
-  {
-    "project_name": "PrekopaLeindler",
-    "name": "prekopa_leindler_dim1",
-    "title": "Prekopa-Leindler inequality (dimension 1)",
-    "estimated_pages": 4,
-    "explanation": "The one-dimensional functional Brunn-Minkowski inequality, via a level-set / essential-supremum convolution argument."
-  },
-  {
-    "project_name": "ProthTheorem",
-    "name": "proth",
-    "title": "Proth's theorem",
-    "estimated_pages": 3,
-    "explanation": "A Pocklington-style primality criterion for Proth numbers using quadratic residues and the order of an element mod n."
-  },
-  {
-    "project_name": "PseudoArithmeticPeriod",
-    "name": "smallest_period_div",
-    "title": "Smallest-period divisor identity",
-    "estimated_pages": 5,
-    "explanation": "An identity for OEIS sequences tied to multiplicative orders of 2 mod 2n+1, requiring careful manipulation of base-2 periods."
-  },
-  {
-    "project_name": "RamanujanNagellEquation",
-    "name": "ramanujan_nagell",
-    "title": "Ramanujan-Nagell equation",
-    "estimated_pages": 18,
-    "explanation": "Solving 2^n - 7 = x^2 completely, via unique factorisation in Z[(1+sqrt(-7))/2] and a p-adic/linear-forms bounding of solutions."
-  },
-  {
-    "project_name": "RiemannSeries",
-    "name": "riemann_summation_atbot",
-    "title": "Riemann rearrangement theorem",
-    "estimated_pages": 3,
-    "explanation": "A conditionally convergent real series can be rearranged to diverge to minus infinity, via a greedy positive/negative-block construction."
-  },
-  {
-    "project_name": "RisingSunLemma",
-    "name": "risingsun",
-    "title": "Rising sun lemma",
-    "estimated_pages": 3,
-    "explanation": "The structure of the 'shadow' open set of a continuous function as a disjoint union of intervals with the boundary-value property."
-  },
-  {
-    "project_name": "RobinTheorem",
-    "name": "robin",
-    "title": "Robin's theorem",
-    "estimated_pages": 30,
-    "explanation": "The RH-equivalent sigma(n) bound, requiring precise asymptotics of the sum-of-divisors function on superabundant numbers and the connection to explicit prime estimates."
-  },
-  {
-    "project_name": "RothTheorem",
-    "name": "roth",
-    "title": "Roth's theorem (Diophantine approximation)",
-    "estimated_pages": 40,
-    "explanation": "Algebraic numbers have irrationality measure exactly 2, requiring Roth's multi-variable auxiliary polynomial, the index machinery, and Roth's lemma (Dyson/Schneider style)."
-  },
-  {
-    "project_name": "RoucheCapelli",
-    "name": "rouche_capelli",
-    "title": "Rouche-Capelli theorem",
-    "estimated_pages": 2,
-    "explanation": "Solvability of a linear system via equality of coefficient and augmented matrix ranks; essentially undergraduate linear algebra."
-  },
-  {
-    "project_name": "SchauderFixedPointTheorem",
-    "name": "SchauderFixedPointTheorem",
-    "title": "Schauder fixed-point theorem",
-    "estimated_pages": 10,
-    "explanation": "Extending Brouwer to compact convex sets in locally convex spaces, via finite-dimensional projections / approximation and Brouwer's theorem."
-  },
-  {
-    "project_name": "SchurRamsey",
-    "name": "schur",
-    "title": "Schur's theorem",
-    "estimated_pages": 3,
-    "explanation": "Monochromatic solutions of x+y=z under finite colourings, a corollary of Ramsey's theorem on complete graphs."
-  },
-  {
-    "project_name": "SinkhornTheorem",
-    "name": "sinkhorn_existence",
-    "title": "Sinkhorn's theorem (existence)",
-    "estimated_pages": 9,
-    "explanation": "Diagonal scaling of a positive matrix to doubly stochastic, via a compactness/convex-optimisation (entropy) or fixed-point argument."
+    "explanation": "Requires iterating the Mycielskian construction and proving by induction that it stays triangle-free (K3-free) while raising the chromatic number by one via a recoloring/contradiction argument; the formalized statement is just the existence direction, but building the construction and the chromatic-number lower bound in a proof assistant is non-trivial combinatorics."
   },
   {
     "project_name": "SinkhornTheorem",
     "name": "sinkhorn_uniqueness",
-    "title": "Sinkhorn's theorem (uniqueness)",
-    "estimated_pages": 5,
-    "explanation": "Uniqueness of the scaling up to the natural one-parameter ambiguity, via a convexity / strict-monotonicity argument."
-  },
-  {
-    "project_name": "StarOfDavid",
-    "name": "starofdavid",
-    "title": "Star of David theorem",
-    "estimated_pages": 6,
-    "explanation": "Equality of two gcd-products of binomial coefficients around a Pascal-triangle hexagon, via prime-by-prime Kummer/valuation analysis."
-  },
-  {
-    "project_name": "SzemerediTheorem",
-    "name": "szemeredi",
-    "title": "Szemeredi's theorem",
-    "estimated_pages": 150,
-    "explanation": "Positive-density sets contain arbitrarily long arithmetic progressions: a monumental result via the regularity lemma and combinatorial machinery (or ergodic/Fourier alternatives)."
+    "title": "Sinkhorn's theorem",
+    "estimated_pages": 3,
+    "explanation": "Uniqueness (up to the scalar c) of the diagonal scalings, established by a strict-convexity/log-convexity argument on the positive scaling factors showing two doubly-stochastic scalings must differ only by the stated reciprocal constant."
   },
   {
     "project_name": "SzemerediTrotterTheorem",
     "name": "szemeredi_trotter",
-    "title": "Szemeredi-Trotter theorem",
-    "estimated_pages": 8,
-    "explanation": "The sharp point-line incidence bound, via the crossing-number inequality (itself needing Euler's formula and a probabilistic deletion argument)."
-  },
-  {
-    "project_name": "TotientGrowthRate",
-    "name": "totient_lower_bound",
-    "title": "Lower bound on totient growth",
-    "estimated_pages": 20,
-    "explanation": "The Rosser-Schoenfeld-type explicit lower bound for phi(n), requiring Mertens' third theorem with explicit error terms and primorial extremal analysis."
-  },
-  {
-    "project_name": "TverbergTheorem",
-    "name": "tverberg",
-    "title": "Tverberg's theorem",
-    "estimated_pages": 12,
-    "explanation": "Partitioning (d+1)(r-1)+1 points into r parts with intersecting convex hulls, via the Sarkaria tensor trick and the colourful Caratheodory theorem."
-  },
-  {
-    "project_name": "TwoFactorTheorem",
-    "name": "two_factor_theorem",
-    "title": "2-factor theorem (Petersen)",
-    "estimated_pages": 5,
-    "explanation": "Decomposing a 2k-regular graph into 2-factors, via an Eulerian orientation and a bipartite König/Hall matching argument."
-  },
-  {
-    "project_name": "TwoNinety",
-    "name": "two_ninety_theorem",
-    "title": "The 290 theorem",
-    "estimated_pages": 100,
-    "explanation": "Bhargava-Hanke universality criterion: representing all positive integers reduces to a finite critical set, requiring extensive modular-form/escalation analysis of ternary and quaternary forms."
-  },
-  {
-    "project_name": "ValuationRingInterSubfield",
-    "name": "ValuationRing.inter_subfield",
-    "title": "Valuation ring intersect subfield (Stacks 052L)",
-    "estimated_pages": 2,
-    "explanation": "The intersection of a valuation ring with a subfield is again a valuation ring, by a direct check of the valuation-ring dichotomy."
-  },
-  {
-    "project_name": "Vantieghem",
-    "name": "vantieghem",
-    "title": "Vantieghem's theorem",
-    "estimated_pages": 5,
-    "explanation": "A primality criterion via a product of (2^k - 1) mod (2^n - 1), proved using cyclotomic/order arguments in (Z/(2^n-1))."
-  },
-  {
-    "project_name": "VonStaudtClausen",
-    "name": "von_staudt_clausen",
-    "title": "Von Staudt-Clausen theorem",
-    "estimated_pages": 7,
-    "explanation": "Determines the fractional part of Bernoulli numbers via primes p with (p-1) | 2n, using Bernoulli-number congruences and power sums mod p."
-  },
-  {
-    "project_name": "WaringProblem",
-    "name": "waring",
-    "title": "Waring's problem (existence of g(n))",
-    "estimated_pages": 30,
-    "explanation": "Hilbert's theorem that every n has a finite Waring bound, via the Hilbert-Stridsberg polynomial identities (or the Hardy-Littlewood circle method)."
+    "title": "Szemerédi–Trotter theorem",
+    "estimated_pages": 3,
+    "explanation": "Szekely's proof builds a planar graph from points and line-segments and applies the crossing-number inequality (itself from Euler's formula plus a probabilistic deletion argument), a short and clever advanced-undergraduate combinatorial-geometry argument."
   },
   {
     "project_name": "Wolstenholme",
     "name": "wolstenholme",
     "title": "Wolstenholme's theorem",
-    "estimated_pages": 4,
-    "explanation": "The C(2p-1,p-1) = 1 mod p^3 congruence, via harmonic-sum congruences and Bernoulli-number/power-sum manipulations mod p^3."
+    "estimated_pages": 3,
+    "explanation": "Wolstenholme's mod-p^3 congruence follows from manipulating C(2p-1,p-1) into 1 + p*(harmonic-type sum) and showing the relevant Wolstenholme harmonic sums vanish mod p^2 via pairing/inversion arguments in the cyclic group, a few pages of elementary-but-careful number theory."
   },
   {
-    "project_name": "Worpitzky",
-    "name": "worpitzky3",
-    "title": "Worpitzky identity (auxiliary recursion)",
+    "project_name": "BauerFike",
+    "name": "bauer_fike",
+    "title": "Bauer–Fike Theorem",
     "estimated_pages": 2,
-    "explanation": "An inductive-step identity for Eulerian numbers feeding the main Worpitzky proof."
+    "explanation": "A standard diagonalizable-matrix eigenvalue perturbation bound whose roughly two-thirds-page proof is a similarity transformation plus a subordinate-matrix-norm/condition-number estimate, essentially advanced undergraduate linear algebra with only a thin layer of perturbation-theory machinery."
+  },
+  {
+    "project_name": "BondyTheorem",
+    "name": "bondy",
+    "title": "Bondy's theorem",
+    "estimated_pages": 2,
+    "explanation": "A short extremal-combinatorics result (drop one column from an n-by-n 0-1 matrix with distinct rows keeping rows distinct) provable by a linear-algebra dimension/rank argument over GF(2) or a direct counting induction, only modestly beyond the undergraduate core."
+  },
+  {
+    "project_name": "CartanBrauerHuaTheorem",
+    "name": "cartan_brauer_hua",
+    "title": "Cartan–Brauer–Hua theorem",
+    "estimated_pages": 2,
+    "explanation": "Despite its fame, the proof is a short consequence of Hua's identity showing the invariant subfield is fixed; only basic division-ring algebra is needed once the identity is in hand, essentially undergraduate-to-early-graduate."
+  },
+  {
+    "project_name": "ContinuousMappingLaw",
+    "name": "ProbabilityMeasure.tendsto_map_of_forall_continuousAt",
+    "title": "Continuous Mapping Theorem (convergence in distribution version)",
+    "estimated_pages": 2,
+    "explanation": "The convergence-in-distribution version requires the portmanteau theorem and careful handling of the discontinuity set having limit-measure zero (weak convergence machinery), modestly beyond a first probability course but standard graduate measure-theoretic probability."
+  },
+  {
+    "project_name": "FrankWolfe",
+    "name": "frank_wolfe_convergence_rate",
+    "title": "Convergence rate of Frank-Wolfe algorithm",
+    "estimated_pages": 2,
+    "explanation": "The O(1/k) convergence bound follows from the smoothness (descent) lemma giving a per-step decrease via the curvature/duality gap and a simple induction on the optimality gap; essentially advanced-undergraduate convex optimization."
+  },
+  {
+    "project_name": "DeBruijnErdos",
+    "name": "SimpleGraph.colorable_of_finitely_colorable",
+    "title": "De Bruijn-Erd\\H{o}s Theorem (Graph Coloring)",
+    "estimated_pages": 2,
+    "explanation": "The De Bruijn-Erdos compactness theorem follows from a short topological compactness argument (Tychonoff on the product of finite color spaces) or equivalently Zorn's lemma / the ultrafilter lemma, a modest use of the axiom of choice slightly beyond standard undergraduate topology."
+  },
+  {
+    "project_name": "Dilworth",
+    "name": "dilworth",
+    "title": "Dilworth's Theorem",
+    "estimated_pages": 2,
+    "explanation": "The finite Dilworth theorem has a clean induction proof (Galvin) or a reduction to Konig's bipartite matching/Hall's theorem; it is elementary combinatorics but the chain-partition construction and case analysis push it slightly past trivial."
+  },
+  {
+    "project_name": "Hinge",
+    "name": "hinge_iff_geometric",
+    "title": "Hinge Theorem",
+    "estimated_pages": 2,
+    "explanation": "This geometric (metric-space) version of the hinge/SAS-inequality requires deriving the law of cosines from the distance/angle structure and the monotonicity of cosine, modestly above the bare algebraic version but still elementary undergraduate Euclidean geometry."
+  },
+  {
+    "project_name": "KoebeQuarterTheorem",
+    "name": "koebe",
+    "title": "Koebe quarter theorem",
+    "estimated_pages": 2,
+    "explanation": "A compact complex-analysis proof: the Gronwall area theorem gives Bieberbach's bound |a2| <= 2 for normalized univalent functions, and applying it to the auxiliary function w f/(w-f) yields the 1/4 radius bound; only a couple of pages beyond standard undergraduate complex analysis."
+  },
+  {
+    "project_name": "ProthTheorem",
+    "name": "proth",
+    "title": "Proth's theorem",
+    "estimated_pages": 2,
+    "explanation": "A special case of the Pocklington-Lehmer test (like Pepin's test): the converse and forward directions follow from Euler's criterion and order-of-element arguments mod n for n = k*2^m+1, essentially elementary number theory."
+  },
+  {
+    "project_name": "SchurRamsey",
+    "name": "schur",
+    "title": "Schur's theorem",
+    "estimated_pages": 2,
+    "explanation": "Short combinatorial pigeonhole/Ramsey argument: apply Ramsey's theorem to the complete graph colored by edge differences to get a monochromatic triangle yielding x+y=z, requiring development of finite Ramsey's theorem."
+  },
+  {
+    "project_name": "StarOfDavid",
+    "name": "starofdavid",
+    "title": "Star of David",
+    "estimated_pages": 2,
+    "explanation": "Elementary number theory: prove the two triples of binomial coefficients have equal gcd by factorial manipulation of the Star-of-David hexagon identity, with care over the natural-number edge cases (k=0, n=0) in the formal statement."
+  },
+  {
+    "project_name": "Vantieghem",
+    "name": "vantieghem",
+    "title": "Vantieghem's Theorem",
+    "estimated_pages": 2,
+    "explanation": "This primality criterion is proved from properties of cyclotomic polynomials over F_2 (or, for the 'if' direction, just Fermat's little theorem and elementary congruences), a short self-contained number-theory argument near the undergraduate level."
+  },
+  {
+    "project_name": "VonStaudtClausen",
+    "name": "von_staudt_clausen",
+    "title": "Von Staudt-Clausen Theorem",
+    "estimated_pages": 2,
+    "explanation": "The classical proof expresses Bernoulli numbers via Stirling-number/binomial sums and uses Fermat's little theorem to evaluate power sums mod p, distinguishing whether p-1 divides 2n - entirely elementary modular arithmetic with only modest mileage beyond undergraduate."
+  },
+  {
+    "project_name": "BergeTheorem",
+    "name": "SimpleGraph.Subgraph.IsMatching.berge",
+    "title": "Berge's theorem",
+    "estimated_pages": 1,
+    "explanation": "A standard undergraduate graph-theory result proved by analyzing the symmetric difference of two matchings into alternating paths and even cycles; the only effort is the component-structure lemma, requiring essentially no machinery beyond the undergraduate level."
+  },
+  {
+    "project_name": "CasoratiWeierstrass",
+    "name": "casorati_weierstrass",
+    "title": "Casorati-Weierstrass",
+    "estimated_pages": 1,
+    "explanation": "Standard undergraduate complex analysis: assume the image misses a neighborhood of some value b, form the bounded holomorphic g=1/(f-b), apply Riemann's removable-singularity theorem, and derive that the singularity is not essential, a contradiction; a one-paragraph proof."
+  },
+  {
+    "project_name": "CondorcetJury",
+    "name": "condorcet_jury_theorem",
+    "title": "Condorcet's Jury Theorem",
+    "estimated_pages": 1,
+    "explanation": "Fully elementary: the monotonicity in n follows from a short pivotal-voter/binomial-tail comparison (the (1-p)p^2 vs p(1-p)^2 argument) using only basic probability and combinatorics at the undergraduate level."
+  },
+  {
+    "project_name": "ContinuousMappingAs",
+    "name": "ae_tendsto_comp_of_ae_tendsto_of_forall_continuousAt",
+    "title": "Continuous Mapping Theorem (almost sure convergence version)",
+    "estimated_pages": 1,
+    "explanation": "This is the almost-sure version, which is a few-line measure-theoretic argument intersecting two almost-sure events (continuity at the limit point and pointwise convergence) and applying the definition of continuity, entirely undergraduate measure theory."
+  },
+  {
+    "project_name": "Froda",
+    "name": "Real.countable_not_continuousAt",
+    "title": "Froda's Theorem",
+    "estimated_pages": 1,
+    "explanation": "Elementary undergraduate real analysis: each jump discontinuity of a monotone function contains a distinct rational between its one-sided limits, injecting the discontinuity set into the countable rationals."
+  },
+  {
+    "project_name": "GaussLucas",
+    "name": "Complex.mem_convexHull_roots_of_mem_derivative_roots",
+    "title": "Gauss-Lucas",
+    "estimated_pages": 1,
+    "explanation": "Undergraduate-level: the logarithmic-derivative identity P'(z)/P(z)=sum 1/(z-a_i) at a root of P' rearranges into an explicit positive convex combination of the roots, placing z in their convex hull."
+  },
+  {
+    "project_name": "Hinge",
+    "name": "hinge_backward",
+    "title": "Hinge Theorem with Law of Cosines, Backward",
+    "estimated_pages": 1,
+    "explanation": "The converse direction is again pure algebra using the supplied cosine equations and strict monotonicity of cosine on [0,pi], entirely undergraduate."
+  },
+  {
+    "project_name": "Hinge",
+    "name": "hinge_forward",
+    "title": "Hinge Theorem with Law of Cosines, Forward",
+    "estimated_pages": 1,
+    "explanation": "Given the two law-of-cosines equations as hypotheses, this reduces to algebra plus the monotonic decrease of cosine on [0,pi], fully elementary undergraduate real analysis."
+  },
+  {
+    "project_name": "InverseEigenvalue",
+    "name": "Module.End.inv_eigenvalue_iff",
+    "title": "Inverse Eigenvalue Theorem",
+    "estimated_pages": 1,
+    "explanation": "Despite the 'inverse eigenvalue problem' title, the formalized statement is merely the trivial fact that r is an eigenvalue of an invertible map iff r^-1 is an eigenvalue of the inverse, a one-line linear-algebra computation on eigenvectors."
+  },
+  {
+    "project_name": "JonesLemma",
+    "name": "jones",
+    "title": "Jones' Lemma",
+    "estimated_pages": 1,
+    "explanation": "A short cardinal-counting argument: each subset of the discrete closed set has disjoint open neighborhoods by normality, and restricting closures of these to a countable dense set injects the power set of Y into the continuum, using only point-set topology and basic cardinal arithmetic."
+  },
+  {
+    "project_name": "Kraft",
+    "name": "kraft",
+    "title": "Kraft",
+    "estimated_pages": 1,
+    "explanation": "An entirely elementary combinatorial construction: sort the lengths and greedily assign codewords as nodes of an r-ary tree (or via the radix-point partial-sum construction), with the Kraft inequality guaranteeing a free node always remains; fully undergraduate."
+  },
+  {
+    "project_name": "KrullSeparationLemma",
+    "name": "krull_separation",
+    "title": "Krull's separation lemma",
+    "estimated_pages": 1,
+    "explanation": "A direct Zorn's lemma argument producing an ideal maximal among those disjoint from the multiplicative set and showing it is prime, entirely within undergraduate commutative algebra."
+  },
+  {
+    "project_name": "LagrangeTheorem",
+    "name": "lagrange",
+    "title": "Lagrange's theorem (number theory)",
+    "estimated_pages": 1,
+    "explanation": "Elementary induction on the degree using polynomial division by (x-k) over the field Z/pZ, fully undergraduate number theory."
+  },
+  {
+    "project_name": "McMillan",
+    "name": "mcmillan",
+    "title": "McMillan",
+    "estimated_pages": 1,
+    "explanation": "Karush's counting argument: raise the Kraft sum to the m-th power, bound the count of length-l strings using unique decodability, then take m-th roots and let m->infinity, fully elementary combinatorics."
+  },
+  {
+    "project_name": "OreTheorem",
+    "name": "ore_maximal_hamiltonian_cycle_free_graph",
+    "title": "Ore's theorem",
+    "estimated_pages": 1,
+    "explanation": "Purely elementary extremal graph argument on an edge-maximal non-Hamiltonian graph (the standard degree-sum lemma at the heart of Ore's theorem), fully undergraduate combinatorics."
+  },
+  {
+    "project_name": "OreTheorem",
+    "name": "ore_theorem",
+    "title": "Ore's theorem",
+    "estimated_pages": 1,
+    "explanation": "Classic short extremal/contradiction proof (maximal non-Hamiltonian graph, longest-path rotation, pigeonhole on the degree condition); entirely undergraduate-level graph theory."
+  },
+  {
+    "project_name": "RiemannSeries",
+    "name": "riemann_summation_atbot",
+    "title": "Riemann series theorem",
+    "estimated_pages": 1,
+    "explanation": "Elementary undergraduate real-analysis greedy-rearrangement construction (alternately accumulate positive/negative terms), here specialized to the easier divergence-to-negative-infinity case rather than the full rearrangement-to-any-value statement."
+  },
+  {
+    "project_name": "RisingSunLemma",
+    "name": "risingsun",
+    "title": "Rising Sun Lemma",
+    "estimated_pages": 1,
+    "explanation": "Purely undergraduate real-analysis argument: openness of the shadow set plus a proof-by-contradiction about maxima of a continuous function, then decomposing an open subset of R into countably many disjoint intervals."
+  },
+  {
+    "project_name": "RoucheCapelli",
+    "name": "rouche_capelli",
+    "title": "Rouché--Capelli",
+    "estimated_pages": 1,
+    "explanation": "Standard undergraduate linear algebra: row-reduce the augmented matrix and compare ranks of coefficient and augmented matrices, an inconsistency 0=1 appearing exactly when the ranks differ."
   },
   {
     "project_name": "Worpitzky",
     "name": "worpitzky",
     "title": "Worpitzky identity",
-    "estimated_pages": 3,
-    "explanation": "Expressing x^n in the binomial basis with Eulerian-number coefficients, via the recurrence for Eulerian numbers and an induction on n."
-  },
-  {
-    "project_name": "ZsigmondyTheorem",
-    "name": "zsigmondy_theorem",
-    "title": "Zsigmondy's theorem",
-    "estimated_pages": 16,
-    "explanation": "Existence of primitive prime divisors of a^n - b^n, via cyclotomic-polynomial factorisation, lifting-the-exponent, and exclusion of the known exceptions."
+    "estimated_pages": 1,
+    "explanation": "A standard combinatorial identity provable by induction/finite differences on the recurrence A(n,k) = (k+1)A(n-1,k) + (n-k)A(n-1,k-1) for Eulerian numbers together with the binomial Pascal/Vandermonde identities; entirely undergraduate combinatorics, and the formalized statement is the full general identity for all n."
   }
 ]
